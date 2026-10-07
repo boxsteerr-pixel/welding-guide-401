@@ -4,18 +4,141 @@
     "machineId": "401",
     "machineName": "401激光焊机",
     "manualTitle": "操作工快速处置手册",
-    "manualVersion": "0.1.0",
-    "contentStatus": "空白内容框架",
-    "lastUpdated": "2026-09-30"
+    "manualVersion": "0.2.0",
+    "contentStatus": "已录入4项异常处理",
+    "lastUpdated": "2026-10-07"
   },
   "notices": [
     {
       "level": "warning",
-      "title": "内容尚未发布",
-      "body": "当前仅建立独立手册框架。正式故障处置、维护和安全内容须经现场审核后录入。"
+      "title": "内容范围",
+      "body": "当前已录入4项异常处理手顺；日常维护和安全事项内容待录入。"
     }
   ],
-  "faults": [],
+  "faults": [
+    {
+      "id": "double-cut-scrap-belt-speed",
+      "title": "双切剪废料皮带速度调整",
+      "summary": "适用情况：双切剪废料皮带运行速度过快或过慢，需要对废料皮带速度进行调整时使用。",
+      "keywords": ["废料皮带", "双切剪", "速度调整"],
+      "guide": [
+        {
+          "title": "阀组位置",
+          "paragraphs": ["废料皮带速度控制阀组位于焊机小车出口侧小阀台。", "到达小阀台后，找到现场标有“皮带”字样的阀组。", "该阀组中间位置为废料皮带速度调节装置。"],
+          "emphasis": [{"text": "焊机小车出口侧小阀台 → 标有“皮带”的阀组"}],
+          "image": "./assets/images/scrap-belt-location.png",
+          "caption": "废料皮带速度控制阀组——找到标有‘皮带’字样的阀组"
+        },
+        {
+          "step": "1", "title": "松开锁紧螺母",
+          "paragraphs": ["找到调节装置外侧的大锁紧螺母。"],
+          "emphasis": [{"text": "逆时针旋转外侧大的锁紧螺母，将锁紧螺母松开。"}],
+          "image": "./assets/images/scrap-belt-unlock.png",
+          "caption": "先松开外侧锁紧螺母"
+        },
+        {
+          "step": "2", "title": "调整皮带速度",
+          "paragraphs": ["锁紧螺母松开后，调整中间的调节螺栓。", "“调节螺栓”指中间的小调节螺栓，不是外侧的大锁紧螺母。"],
+          "emphasis": [{"text": "顺时针旋转中间小调节螺栓 → 调快皮带速度", "tone": "red"}, {"text": "逆时针旋转中间小调节螺栓 → 调慢皮带速度", "tone": "blue"}],
+          "image": "./assets/images/scrap-belt-adjust.png",
+          "caption": "调整中间调节螺栓，改变废料皮带速度"
+        },
+        {
+          "step": "3", "title": "调整完成后锁紧",
+          "paragraphs": ["确认废料皮带速度调整合适后，本步骤操作对象是外侧大锁紧螺母。"],
+          "emphasis": [{"text": "顺时针拧紧外侧大锁紧螺母，锁紧调节装置。"}],
+          "image": "./assets/images/scrap-belt-lock.png",
+          "caption": "调整完成后，重新锁紧外侧锁紧螺母"
+        },
+        {
+          "title": "快速记忆 · 废料皮带速度调整",
+          "flow": ["① 先松锁紧螺母", "② 再调中间调节螺栓", "③ 调整完成后重新锁紧"],
+          "emphasis": [{"text": "先松锁紧 → 再调速度 → 最后锁紧"}, {"text": "顺时针调节螺栓 → 皮带速度调快", "tone": "red"}, {"text": "逆时针调节螺栓 → 皮带速度调慢", "tone": "blue"}]
+        },
+        {
+          "title": "注意",
+          "notes": ["调整前先确认操作的是标有“皮带”字样的阀组。", "调速时操作中间的小调节螺栓，不要误将外侧大锁紧螺母作为调速螺栓。", "调整完成后，必须重新拧紧外侧锁紧螺母，防止调节位置发生变化。", "调整过程中应逐步调整，避免一次调整幅度过大。"]
+        }
+      ]
+    },
+    {
+      "id": "circulation-pump-filter-alarm",
+      "title": "循环泵滤芯报警",
+      "pageTitle": "401焊机｜循环泵滤芯报警",
+      "summary": "循环泵滤芯切换",
+      "keywords": ["循环泵滤芯报警", "滤芯切换", "循环泵过滤器"],
+      "guide": [
+        {
+          "title": "异常现象",
+          "paragraphs": ["当401焊机出现“循环泵滤芯报警”时，可进行循环泵滤芯切换。"],
+          "emphasis": [{"text": "循环泵滤芯切换可不停泵操作"}]
+        },
+        {
+          "step": "1", "title": "找到循环泵过滤器",
+          "paragraphs": ["现场可看到两个并排的红色过滤器罐体。"],
+          "emphasis": [{"text": "出口传动侧 → 焊机油箱上方"}, {"text": "左侧：1#循环泵过滤器"}, {"text": "右侧：2#循环泵过滤器"}],
+          "image": "./assets/images/circulation-pump-filter-location.png",
+          "caption": "循环泵过滤器位于出口传动侧焊机油箱上方两个红色罐体中"
+        },
+        {
+          "step": "2", "title": "找到滤芯切换装置",
+          "paragraphs": ["在1#、2#循环泵过滤器之间，找到滤芯切换装置。", "切换位置位于两个红色过滤器之间的中间阀体上。"],
+          "emphasis": [{"text": "两个过滤器之间 → 中间滤芯切换装置"}],
+          "image": "./assets/images/circulation-pump-filter-switch.png",
+          "caption": "两个循环泵过滤器中间为滤芯切换装置"
+        },
+        {
+          "step": "3", "title": "切换1# / 2#滤芯",
+          "paragraphs": ["使用扳手操作中间的滤芯切换装置，将当前使用的滤芯切换至另一侧滤芯。"],
+          "emphasis": [{"text": "1#滤芯 ⇄ 2#滤芯"}, {"text": "可不停泵操作"}],
+          "image": "./assets/images/circulation-pump-filter-switch.png",
+          "caption": "使用扳手旋转切换装置，切换1#、2#滤芯，可不停泵操作。"
+        },
+        {
+          "step": "4", "title": "确认报警状态",
+          "paragraphs": ["完成循环泵滤芯切换后，确认循环泵滤芯报警是否恢复正常。", "如报警恢复正常，本次滤芯切换完成。"],
+          "emphasis": [{"text": "确认循环泵滤芯报警是否恢复正常。"}, {"text": "如报警未恢复：停止继续反复切换，按现有异常处理流程进一步检查。", "tone": "red"}]
+        },
+        {
+          "title": "快速操作",
+          "flow": ["循环泵滤芯报警", "找到循环泵过滤器：出口传动侧 → 焊机油箱上方 → 两个红色罐体", "确认1# / 2#过滤器", "找到中间切换装置", "使用扳手旋转切换装置", "1#滤芯 ⇄ 2#滤芯", "确认报警是否恢复"],
+          "footer": "滤芯切换可不停泵操作"
+        }
+      ]
+    },
+    {
+      "id": "laser-source-query",
+      "title": "激光源故障查询",
+      "summary": "激光源报警、激光就绪异常、联锁未满足",
+      "risk": "high",
+      "keywords": ["激光源", "故障查询", "Diagnostics", "报警"],
+      "guide": [
+        {"title": "异常信息", "paragraphs": ["异常类别：激光系统 / 电气联锁 / 冷却联锁", "报警提示：激光源报警、激光就绪异常、联锁未满足", "需要通知：班长、电气、点检、激光专业人员"], "emphasis": [{"text": "禁止继续生产", "tone": "red"}]},
+        {"step": "1", "title": "进入激光画面", "paragraphs": ["在总界面右侧点击“激光画面”按钮，进入激光源 LaserBOF 画面。"], "image": "./assets/images/laser-source-query-step-1.jpg", "caption": "进入激光画面"},
+        {"step": "2", "title": "进入 Diagnostics 诊断页面", "paragraphs": ["在 LaserBOF 画面右侧点击“Diagnostics”按钮，进入诊断页面。"], "image": "./assets/images/laser-source-query-step-2.jpg", "caption": "进入 Diagnostics 诊断页面"},
+        {"step": "3", "title": "查看当前报警 Pending messages", "paragraphs": ["在诊断页面顶部点击“Pending messages”，查看当前未处理报警。"], "image": "./assets/images/laser-source-query-step-3.jpg", "caption": "查看当前报警 Pending messages"},
+        {"step": "4", "title": "拍摄即时报警信息", "paragraphs": ["拍摄即时报警信息，并发送给点检人员确认。"], "image": "./assets/images/laser-source-query-step-4.jpg", "caption": "拍摄即时报警信息"},
+        {"step": "5", "title": "查询历史报警 History of messages", "paragraphs": ["需要追溯时点击“History of messages”，查询历史报警信息。"], "image": "./assets/images/laser-source-query-step-5.jpg", "caption": "查询历史报警 History of messages"},
+        {"step": "6", "title": "拍照后进行故障复位", "paragraphs": ["确认即时报警信息已拍照留存后，点击左侧 Error Reset / 故障复位按钮进行复位。"], "image": "./assets/images/laser-source-query-step-6.jpg", "caption": "拍照后进行故障复位"}
+      ]
+    },
+    {
+      "id": "clamp-platform-blocked",
+      "title": "夹紧台堵塞故障",
+      "summary": "夹紧台堵塞 / 夹紧台位置异常",
+      "risk": "high",
+      "keywords": ["夹紧台", "堵塞", "夹钳台", "位置异常"],
+      "guide": [
+        {"title": "异常信息", "paragraphs": ["异常类别：夹紧台控制 / 出入口夹钳台", "报警提示：夹紧台堵塞 / 夹紧台位置异常", "需要通知：班长、点检", "按以下画面步骤处理；调整后仍无法消除故障时，停止处理并通知点检。"], "emphasis": [{"text": "禁止继续生产", "tone": "red"}]},
+        {"step": "1", "title": "进入夹钳台控制器", "paragraphs": ["按照报警画面，选择“入口夹钳台控制器”或“出口夹钳台控制器”。"], "image": "./assets/images/clamp-platform-step-1.webp", "caption": "进入夹钳台控制器"},
+        {"step": "2", "title": "进入调整模式", "paragraphs": ["进入画面后，点击左下角“调整模式”按钮，按钮变为绿色后进入调整模式。"], "image": "./assets/images/clamp-platform-step-2.webp", "caption": "进入调整模式"},
+        {"step": "3", "title": "比对两侧实际数值", "paragraphs": ["观察入口、出口两侧实际编码器数值，确认两侧数值差异。"], "image": "./assets/images/clamp-platform-step-3.webp", "caption": "比对两侧实际数值"},
+        {"step": "4", "title": "锁定需要保持的一侧", "paragraphs": ["根据数值，点击单侧“锁定轴 LOCK”进行锁轴；仅对未锁轴侧进行后续调整。"], "image": "./assets/images/clamp-platform-step-4.webp", "caption": "锁定需要保持的一侧"},
+        {"step": "5", "title": "微调未锁轴侧位置", "paragraphs": ["对未锁轴处夹紧台进行微调，直至两侧实际值接近，差值约 1 mm。"], "image": "./assets/images/clamp-platform-step-5.webp", "caption": "微调未锁轴侧位置"},
+        {"step": "6", "title": "取消锁定并恢复动作", "paragraphs": ["数值调整完成后，取消锁定轴、取消调整模式；回到出入口画面，点击夹紧台位置前后移动，确认故障消除。"], "image": "./assets/images/clamp-platform-step-6.webp", "caption": "取消锁定并恢复动作"}
+      ]
+    }
+  ],
   "maintenance": [],
   "safety": []
 }

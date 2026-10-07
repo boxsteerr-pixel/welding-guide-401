@@ -219,3 +219,15 @@ button:focus-visible, input:focus-visible, summary:focus-visible { outline:3px s
 .fault-row strong { display:block; color:#163a60; font-size:17px; }
 .fault-row small { display:block; color:#70869d; font-size:13px; }
 .fault-row > em { color:#4f6d88; font-size:32px; font-style:normal; }
+
+/* Local to the new 401 scrap-belt procedure. */
+.belt-guide:not([open]) > .entry-body { display:none; }
+.belt-guide .entry-body { overflow-wrap:anywhere; }
+.belt-guide .step-card h3 { margin:0 0 10px; color:#154f7d; font-size:19px; line-height:1.4; }
+.belt-guide .belt-step { display:block; margin-bottom:4px; color:var(--blue); font-size:13px; letter-spacing:.06em; }
+.belt-guide .belt-direction { padding:10px; border-radius:7px; color:#075b9b; background:#eaf5fc; }
+.belt-guide .belt-direction--red { color:#b32028; background:#fff0f0; }
+.belt-guide .belt-flow { margin:12px 0; padding:0; list-style:none; text-align:center; font-weight:800; color:#154f7d; }
+.belt-guide .belt-flow li + li::before { content:"↓"; display:block; color:var(--muted); }
+.belt-guide .step-card img { width:100%; height:auto; max-height:none; object-fit:contain; }
+.belt-guide .belt-caption { color:var(--muted); font-size:13px; }

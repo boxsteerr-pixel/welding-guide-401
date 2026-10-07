@@ -64,6 +64,58 @@
 
     const body = document.createElement("div");
     body.className = "entry-body";
+    if (["double-cut-scrap-belt-speed", "circulation-pump-filter-alarm", "laser-source-query", "clamp-platform-blocked"].includes(item.id) && Array.isArray(item.guide)) {
+      details.classList.add("belt-guide");
+      if (item.pageTitle) {
+        const heading = document.createElement("h2"); heading.append(text(item.pageTitle)); body.append(heading);
+      }
+      const intro = document.createElement("p"); intro.append(text(item.summary)); body.append(intro);
+      item.guide.forEach(function (block) {
+        const card = document.createElement("section"); card.className = "step-card";
+        const heading = document.createElement("h3");
+        if (block.step) {
+          const number = document.createElement("span"); number.className = "belt-step";
+          number.append(text(`STEP ${block.step}`)); heading.append(number);
+        }
+        heading.append(text(block.title)); card.append(heading);
+        (block.paragraphs || []).forEach(function (line) {
+          const paragraph = document.createElement("p"); paragraph.append(text(line)); card.append(paragraph);
+        });
+        (block.emphasis || []).forEach(function (line) {
+          const paragraph = document.createElement("p"); paragraph.className = `belt-direction belt-direction--${line.tone || "blue"}`;
+          const strong = document.createElement("strong"); strong.append(text(line.text)); paragraph.append(strong); card.append(paragraph);
+        });
+        if (block.flow) {
+          const flow = document.createElement("ol"); flow.className = "belt-flow";
+          block.flow.forEach(function (line) { const node = document.createElement("li"); node.append(text(line)); flow.append(node); });
+          card.append(flow);
+        }
+        if (block.footer) {
+          const footer = document.createElement("p"); footer.className = "belt-direction";
+          const strong = document.createElement("strong"); strong.append(text(block.footer)); footer.append(strong); card.append(footer);
+        }
+        if (block.notes) {
+          const list = document.createElement("ol");
+          block.notes.forEach(function (line) { const node = document.createElement("li"); node.append(text(line)); list.append(node); });
+          card.append(list);
+        }
+        if (block.image) {
+          const image = document.createElement("img"); image.src = block.image;
+          image.alt = block.caption; image.loading = "lazy"; image.tabIndex = 0;
+          image.setAttribute("role", "button"); image.setAttribute("aria-label", `查看大图：${block.caption}`);
+          image.addEventListener("click", function () { openImage(image); });
+          image.addEventListener("keydown", function (event) {
+            if (event.key === "Enter" || event.key === " ") { event.preventDefault(); openImage(image); }
+          });
+          const caption = document.createElement("p"); caption.className = "belt-caption"; caption.append(text(block.caption));
+          const hint = document.createElement("span"); hint.className = "image-hint"; hint.append(text("点击查看大图"));
+          card.append(image, caption, hint);
+        }
+        body.append(card);
+      });
+      details.append(summary, body);
+      return details;
+    }
     body.append(risk);
     if (item.summary) {
       const paragraph = document.createElement("p");
