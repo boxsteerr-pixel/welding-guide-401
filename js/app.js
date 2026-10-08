@@ -3,6 +3,9 @@
 
   const state = { manual: null, section: "home", query: "", deferredInstallPrompt: null };
   const sectionNames = ["home", "faults", "maintenance", "safety"];
+  const focusCheckId = "segment-focus-check";
+  const focusAdjustmentId = "focus-position-adjustment";
+  const maintenanceDetailIds = [focusCheckId, focusAdjustmentId];
   const riskLabels = { high: "高风险", medium: "注意", low: "一般" };
 
   function text(value) {
@@ -16,22 +19,34 @@
 
   // Route hashes must not match content element IDs: native fragment scrolling hides the header.
   function sectionFromHash() {
-    const name = location.hash.replace(/^#(?:section=)?/, "");
+    const name = location.hash.replace(/^#(?:section=)?/, "").split("&")[0];
     return sectionNames.includes(name) ? name : "home";
+  }
+
+  function detailFromHash() {
+    const item = new URLSearchParams(location.hash.slice(1)).get("item");
+    return sectionFromHash() === "maintenance" && maintenanceDetailIds.includes(item) ? item : null;
+  }
+
+  function sectionHash(name, item) {
+    return `#section=${name}${maintenanceDetailIds.includes(item) ? `&item=${item}` : ""}`;
   }
 
   function showSection(name, options) {
     if (!sectionNames.includes(name)) name = "home";
     state.section = name;
+    const requestedItem = options && options.fromHistory ? detailFromHash() : options && options.item;
+    const item = name === "maintenance" && maintenanceDetailIds.includes(requestedItem) ? requestedItem : null;
+    const page = item === focusAdjustmentId ? "focus-adjustment-detail" : item ? "maintenance-detail" : name;
     document.querySelectorAll("[data-page]").forEach(function (section) {
-      section.classList.toggle("active", section.dataset.page === name);
+      section.classList.toggle("active", section.dataset.page === page);
     });
     document.querySelectorAll("[data-section]").forEach(function (button) {
       const active = button.dataset.section === name;
       button.classList.toggle("active", active);
       if (active) button.setAttribute("aria-current", "page"); else button.removeAttribute("aria-current");
     });
-    if (!options || !options.fromHistory) history.pushState({ section: name }, "", `#section=${name}`);
+    if (!options || !options.fromHistory) history.pushState({ section: name, item: item }, "", sectionHash(name, item));
     window.scrollTo({ top: 0, behavior: options && options.initial ? "instant" : "smooth" });
     const searchPanel = document.querySelector(".search-panel");
     if (searchPanel) searchPanel.hidden = name !== "home" && name !== "faults";
@@ -50,7 +65,7 @@
     parent.append(heading, list);
   }
 
-  function buildEntry(item) {
+  function buildEntry(item, detailView) {
     const details = document.createElement("details");
     details.className = "manual-entry";
     details.dataset.risk = item.risk || "medium";
@@ -62,9 +77,21 @@
     title.append(text(item.title || "未命名项目"));
     summary.append(title);
 
+    if (maintenanceDetailIds.includes(item.id) && !detailView) {
+      summary.addEventListener("click", function (event) {
+        event.preventDefault();
+        showSection("maintenance", { item: item.id });
+      });
+      const draft = document.createElement("small");
+      draft.className = "focus-check-draft";
+      draft.append(text("待现场确认")); title.append(draft);
+      details.append(summary);
+      return details;
+    }
+
     const body = document.createElement("div");
     body.className = "entry-body";
-    if (["double-cut-scrap-belt-speed", "circulation-pump-filter-alarm", "laser-source-query", "clamp-platform-blocked", "cooling-water-switch", "gas-nozzle-cleaning", "scissors-cleaning", "secondary-scrap-cleaning", "clamp-air-cleaning", "car-rail-cleaning", "guide-wheel-cleaning"].includes(item.id) && Array.isArray(item.guide)) {
+    if (["double-cut-scrap-belt-speed", "circulation-pump-filter-alarm", "laser-source-query", "clamp-platform-blocked", "cooling-water-switch", "gas-nozzle-cleaning", "scissors-cleaning", "secondary-scrap-cleaning", "clamp-air-cleaning", "car-rail-cleaning", "guide-wheel-cleaning", focusCheckId, focusAdjustmentId].includes(item.id) && Array.isArray(item.guide)) {
       details.classList.add("belt-guide");
       if (item.pageTitle) {
         const heading = document.createElement("h2"); heading.append(text(item.pageTitle)); body.append(heading);
@@ -100,7 +127,7 @@
           card.append(list);
         }
         const pictures = block.image ? [{image: block.image, caption: block.caption}] : [];
-        if (item.id === "cooling-water-switch" && Array.isArray(block.images)) pictures.push(...block.images);
+        if (["cooling-water-switch", focusAdjustmentId].includes(item.id) && Array.isArray(block.images)) pictures.push(...block.images);
         pictures.forEach(function (picture) {
           const image = document.createElement("img"); image.src = picture.image;
           image.alt = picture.caption; image.loading = "lazy"; image.tabIndex = 0;
@@ -116,6 +143,7 @@
         body.append(card);
       });
       details.append(summary, body);
+      if (detailView) { details.open = true; summary.hidden = true; }
       return details;
     }
     body.append(risk);
@@ -230,6 +258,14 @@
     });
     if (!keywords.childNodes.length) keywords.append(text("内容录入后显示快捷关键词"));
     renderCollection("#maintenance-list", manual.maintenance);
+    const focusCheck = manual.maintenance.find(function (item) { return item.id === focusCheckId; });
+    const detail = document.querySelector("#focus-check-content");
+    detail.replaceChildren();
+    if (focusCheck) detail.append(buildEntry(focusCheck, true));
+    const focusAdjustment = manual.maintenance.find(function (item) { return item.id === focusAdjustmentId; });
+    const adjustmentDetail = document.querySelector("#focus-adjustment-content");
+    adjustmentDetail.replaceChildren();
+    if (focusAdjustment) adjustmentDetail.append(buildEntry(focusAdjustment, true));
     renderCollection("#safety-list", manual.safety);
   }
 
@@ -406,13 +442,15 @@
 
   if ("scrollRestoration" in history) history.scrollRestoration = "manual";
   window.addEventListener("hashchange", function () {
-    const name = location.hash.replace(/^#(?:section=)?/, "");
+    const name = location.hash.replace(/^#(?:section=)?/, "").split("&")[0];
     if (!sectionNames.includes(name)) return;
-    history.replaceState({ section: name }, "", `#section=${name}`);
+    const item = detailFromHash();
+    history.replaceState({ section: name, item: item }, "", sectionHash(name, item));
     showSection(name, { fromHistory: true, initial: true });
   });
   const initialSection = sectionFromHash();
-  history.replaceState({ section: initialSection }, "", `#section=${initialSection}`);
+  const initialItem = detailFromHash();
+  history.replaceState({ section: initialSection, item: initialItem }, "", sectionHash(initialSection, initialItem));
   showSection(initialSection, { fromHistory: true, initial: true });
   window.addEventListener("pageshow", function (event) {
     if (!event.persisted) window.scrollTo({ top: 0, behavior: "instant" });

@@ -4,15 +4,15 @@
     "machineId": "401",
     "machineName": "401激光焊机",
     "manualTitle": "操作工快速处置手册",
-    "manualVersion": "0.3.2",
-    "contentStatus": "已录入5项异常处理、6项日常维护",
+    "manualVersion": "0.3.3",
+    "contentStatus": "已录入5项异常处理、8项日常维护",
     "lastUpdated": "2026-10-08"
   },
   "notices": [
     {
       "level": "warning",
       "title": "内容范围",
-      "body": "当前已录入5项异常处理手顺及6项日常维护；安全事项内容待录入。"
+      "body": "当前已录入5项异常处理手顺及8项日常维护；两项焦点相关手顺的未核实内容仍按页面标记待现场确认。安全事项内容待录入。"
     }
   ],
   "faults": [
@@ -259,6 +259,77 @@
         {"title": "操作方法", "notes": ["确认设备停止。", "插上小车安全销，导向轮安全销。", "使用工具清理导向轮侧面结渣。"]},
         {"title": "注意事项", "emphasis": [{"text": "戴好手套清理导向轮，防止烫伤。", "tone": "red"}, {"text": "清理时注意防止铁屑飞入眼睛。", "tone": "red"}]},
         {"title": "维护周期", "paragraphs": ["发现积渣严重及时清理，一般点检会提前清理。"]}
+      ]
+    },
+    {
+      "id": "segment-focus-check",
+      "title": "利用段焊进行焦点位置检查",
+      "approvalStatus": "pending-site-confirmation",
+      "summary": "适用人员：经过授权和培训的操作人员。本手顺为本地待审核草稿，焦点检查的具体操作尚待现场确认。",
+      "keywords": ["段焊", "焦点位置", "激光点射模式"],
+      "guide": [
+        {
+          "step": "01",
+          "title": "进入设备调整画面",
+          "paragraphs": ["在焊机“概览”画面中，找到维修用户区域，点击“设备调整”按钮。"],
+          "image": "./assets/images/focus-check-overview.png",
+          "caption": "在概览画面中选择设备调整按钮（原始现场标注图）"
+        },
+        {
+          "step": "02",
+          "title": "进入段焊模式",
+          "paragraphs": ["在“设备调整”画面的“选择激光”区域，找到“激光点射模式”。点击对应开关，使其由红色“关”变为绿色“开”，焊机进入段焊模式。"],
+          "emphasis": [{"text": "红色“关” → 绿色“开”：进入段焊模式", "tone": "green"}, {"text": "模式切换不等于允许激光发射。实际段焊必须满足设备联锁、安全条件和经批准的现场操作规程。", "tone": "red"}],
+          "image": "./assets/images/focus-check-adjustment.png",
+          "caption": "设备调整画面：激光点射模式开启与关闭（原始现场标注图）"
+        },
+        {
+          "step": "03",
+          "title": "进行焦点位置检查（待现场确认）",
+          "paragraphs": ["按401焊机现行、经批准的焦点检查规程，在满足设备安全条件后执行段焊，并检查焊接结果。"],
+          "emphasis": [{"text": "待现场确认：以下内容尚未核实，本步骤不得作为已验证操作指导执行或发布。", "tone": "red"}],
+          "notes": ["段焊前的设备准备条件：待现场确认。", "段焊启动及结束的具体操作：待现场确认。", "焦点位置的判断依据：待现场确认。", "检查结果记录要求：待现场确认。"]
+        },
+        {
+          "step": "04",
+          "title": "退出段焊模式",
+          "paragraphs": ["段焊结束后，在“设备调整”画面中再次点击“激光点射模式”，使对应开关由绿色“开”恢复为红色“关”，退出段焊模式，恢复正常焊接模式。"],
+          "emphasis": [{"text": "绿色“开” → 红色“关”：退出段焊模式。确认HMI显示为红色“关”。", "tone": "red"}],
+          "notes": ["退出段焊模式不代表设备已自动满足正常生产的全部启动条件，仍需按现场规程确认。"],
+          "image": "./assets/images/focus-check-adjustment.png",
+          "caption": "设备调整画面：段焊结束后将激光点射模式恢复为红色“关”"
+        }
+      ]
+    },
+    {
+      "id": "focus-position-adjustment",
+      "title": "修改焦点位置",
+      "approvalStatus": "pending-site-confirmation",
+      "summary": "适用设备：401激光焊机。焊接焦点位置发生偏移，需要根据检查结果对操作侧或传动侧焦点位置进行修正时使用。本操作涉及设备补偿参数，应由经过授权的人员执行。",
+      "keywords": ["焦点位置", "横向补偿", "剪刀调整", "夹钳台补偿"],
+      "guide": [
+        {
+          "step": "01",
+          "title": "进入剪刀调整画面",
+          "paragraphs": ["在焊机“概览”画面中，找到“维修用户”区域，点击“剪刀调整”按钮。"],
+          "image": "./assets/images/focus-adjustment-entry.png",
+          "caption": "在概览画面中选择“剪刀调整”按钮"
+        },
+        {
+          "step": "02",
+          "title": "确认焦点偏移方向",
+          "paragraphs": ["根据焦点检查结果，分别确认操作侧和传动侧的焦点位置。以下方向依据现场图片标注整理，正式使用前需核对401设备的实际补偿逻辑。"],
+          "emphasis": [{"text": "焦点偏向出口 → 增大对应侧横向补偿数值（待现场核对）", "tone": "red"}, {"text": "焦点偏向入口 → 减小对应侧横向补偿数值（待现场核对）", "tone": "blue"}],
+          "notes": ["操作侧与传动侧应分别判断，不得未经确认直接同时修改两侧参数。", "原HMI截图示例：操作侧+0.40 mm、传动侧+0.50 mm，仅为截图示例，不代表标准值或目标值。"],
+          "image": "./assets/images/focus-adjustment-parameters.png",
+          "caption": "横向补偿值：操作侧、传动侧及现场标注的调整方向"
+        },
+        {
+          "step": "03",
+          "title": "接受补偿值",
+          "emphasis": [{"text": "原图标注：修改参数后，需点击“接受补偿值”，修改才能生效。", "tone": "blue"}],
+          "images": [{"image": "./assets/images/focus-adjustment-accept.png", "caption": "原始现场标注：“接受补偿值”确认按钮"}]
+        }
       ]
     }
   ],

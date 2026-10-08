@@ -231,3 +231,11 @@ button:focus-visible, input:focus-visible, summary:focus-visible { outline:3px s
 .belt-guide .belt-flow li + li::before { content:"↓"; display:block; color:var(--muted); }
 .belt-guide .step-card img { width:100%; height:auto; max-height:none; object-fit:contain; }
 .belt-guide .belt-caption { color:var(--muted); font-size:13px; }
+
+/* Only the new draft focus-check procedure; other entries keep their styling. */
+#maintenance-detail summary[hidden] { display:none; }
+#maintenance-detail .notice { margin-bottom:14px; }
+#maintenance-detail .belt-direction--green { color:#126342; background:#e7f8ee; }
+#maintenance-list .focus-check-draft { display:block; margin-top:4px; color:#9a5a18; font-size:13px; }
+#focus-adjustment-detail summary[hidden] { display:none; }
+#focus-adjustment-detail .notice { margin-bottom:14px; }

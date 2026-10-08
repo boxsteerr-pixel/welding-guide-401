@@ -13,7 +13,7 @@ const manifest = JSON.parse(manifestText);
 
 assert.equal(manual.machine.machineId, "401");
 assert.equal(manual.machine.machineName, "401激光焊机");
-assert.equal(manual.machine.manualVersion, "0.3.2");
+assert.equal(manual.machine.manualVersion, "0.3.3");
 assert.equal(manual.faults.length, 5);
 assert.equal(manual.faults[0].id, "double-cut-scrap-belt-speed");
 const guide = manual.faults[0].guide;
@@ -22,8 +22,39 @@ for (const block of guide.filter(block => block.image)) {
   await stat(path.join(root, block.image));
   assert.ok(sw.includes(`"${block.image}"`));
 }
-assert.deepEqual(manual.maintenance.map(item => item.id), ["gas-nozzle-cleaning", "scissors-cleaning", "secondary-scrap-cleaning", "clamp-air-cleaning", "car-rail-cleaning", "guide-wheel-cleaning"]);
-assert.ok(manual.maintenance.slice(2).every(item => item.guide.every(block => !block.image && !block.images)), "本次四项维护不应带图片");
+assert.deepEqual(manual.maintenance.map(item => item.id), ["gas-nozzle-cleaning", "scissors-cleaning", "secondary-scrap-cleaning", "clamp-air-cleaning", "car-rail-cleaning", "guide-wheel-cleaning", "segment-focus-check", "focus-position-adjustment"]);
+assert.ok(manual.maintenance.slice(2, 6).every(item => item.guide.every(block => !block.image && !block.images)), "原有四项维护不应带图片");
+const focus = manual.maintenance[6];
+assert.equal(focus.approvalStatus, "pending-site-confirmation");
+assert.deepEqual(focus.guide.map(block => block.step), ["01", "02", "03", "04"]);
+assert.equal(focus.guide[0].image, "./assets/images/focus-check-overview.png");
+assert.equal(focus.guide[1].image, "./assets/images/focus-check-adjustment.png");
+assert.equal(focus.guide[3].image, focus.guide[1].image);
+assert.ok(!focus.guide[2].image);
+assert.equal(focus.guide[2].notes.length, 4);
+assert.ok(focus.guide[2].notes.every(line => line.includes("待现场确认")));
+assert.doesNotMatch(JSON.stringify(focus), /\d+\s*(?:mm|μm|W|kW|m\/min|秒)/);
+assert.match(JSON.stringify(focus), /模式切换不等于允许激光发射/);
+assert.match(JSON.stringify(focus), /退出段焊模式不代表设备已自动满足/);
+assert.match(html, /id="maintenance-detail"/);
+assert.match(app, /function detailFromHash/);
+const adjustment = manual.maintenance[7];
+assert.equal(adjustment.approvalStatus, "pending-site-confirmation");
+assert.deepEqual(adjustment.guide.map(block => block.step), ["01", "02", "03"]);
+assert.match(adjustment.guide[0].paragraphs.join(""), /剪刀调整/);
+assert.doesNotMatch(adjustment.guide[0].paragraphs.join(""), /设备调整/);
+assert.doesNotMatch(JSON.stringify(adjustment), /进入夹钳台补偿画面|待补充入口截图及现场确认/);
+assert.doesNotMatch(html.match(/<section id="focus-adjustment-detail"[\s\S]*?<\/section>/)[0], /本地草稿 · 待现场确认/);
+assert.match(JSON.stringify(adjustment), /仅为截图示例，不代表标准值或目标值/);
+assert.match(JSON.stringify(adjustment), /不得未经确认直接同时修改两侧参数/);
+assert.equal(adjustment.guide[2].images.length, 1);
+assert.equal(adjustment.guide[2].title, "接受补偿值");
+assert.equal(adjustment.guide[2].images[0].image, "./assets/images/focus-adjustment-accept.png");
+assert.ok(!adjustment.guide[2].paragraphs);
+assert.doesNotMatch(JSON.stringify(adjustment.guide[2]), /具体确认、复查及退出流程待现场确认/);
+for (const image of adjustment.guide.flatMap(block => block.images || [])) {
+  await stat(path.join(root, image.image)); assert.ok(sw.includes(`"${image.image}"`));
+}
 for (const item of manual.maintenance) {
   for (const block of item.guide.filter(block => block.image)) {
     await stat(path.join(root, block.image));
@@ -41,7 +72,7 @@ assert.equal(filterImages.length, 2);
 for (const image of filterImages) { await stat(path.join(root, image)); assert.ok(sw.includes(`"${image}"`)); }
 assert.equal(manifest.start_url, "./");
 assert.equal(manifest.scope, "./");
-assert.match(sw, /const CACHE_NAME = "welding-guide-401-v17"/);
+assert.match(sw, /const CACHE_NAME = "welding-guide-401-v19"/);
 for (const entry of manual.faults.slice(2, 4)) {
   const steps = entry.guide.filter(block => block.step);
   assert.deepEqual(steps.map(block => block.step), ["1", "2", "3", "4", "5", "6"]);

@@ -1,7 +1,12 @@
-const CACHE_NAME = "welding-guide-401-v17";
+const CACHE_NAME = "welding-guide-401-v19";
 const CACHE_PREFIX = "welding-guide-401-";
 const APP_ROOT = new URL("./", self.location.href);
 const CORE_ASSETS = [
+  "./assets/images/focus-adjustment-entry.png",
+  "./assets/images/focus-adjustment-parameters.png",
+  "./assets/images/focus-adjustment-accept.png",
+  "./assets/images/focus-check-overview.png",
+  "./assets/images/focus-check-adjustment.png",
   "./assets/images/gas-nozzle-damaged.webp",
   "./assets/images/gas-nozzle-normal.webp",
   "./assets/images/cooling-water-valve-location.png",
@@ -32,9 +37,9 @@ const CORE_ASSETS = [
   "./index.html",
   "./css/home-link.css?v=5",
   "./css/style.css",
-  "./css/style.css?v=9",
+  "./css/style.css?v=11",
   "./js/app.js",
-  "./js/app.js?v=13",
+  "./js/app.js?v=15",
   "./js/update-state.js?v=2",
   "./data/manual.json",
   "./manifest.json",

@@ -7,7 +7,7 @@
   <meta name="description" content="独立设备操作工快速处置手册">
   <link rel="manifest" href="./manifest.json">
   <link rel="icon" href="./assets/icons/icon.svg" type="image/svg+xml">
-  <link rel="stylesheet" href="./css/style.css?v=9">
+  <link rel="stylesheet" href="./css/style.css?v=11">
   <link rel="stylesheet" href="./css/home-link.css?v=5">
   <link rel="stylesheet" href="./css/mobile-header.css?v=1">
   <title>设备操作工快速处置手册</title>
@@ -86,6 +86,19 @@
         <div id="maintenance-list" class="entry-list"></div>
       </section>
 
+      <section id="maintenance-detail" class="section" data-page="maintenance-detail" aria-labelledby="focus-check-title">
+        <div class="collection-toolbar"><button type="button" data-go="maintenance">‹ 返回日常维护</button></div>
+        <div class="section-heading section-heading--page"><h2 id="focus-check-title">利用段焊进行焦点位置检查</h2></div>
+        <div class="notice"><strong>本地草稿 · 待现场确认</strong><p>仅供经过授权和培训的操作人员审核。第3步尚未核实，不得作为已验证操作指导发布；模式切换不等于允许激光发射。</p></div>
+        <div id="focus-check-content"></div>
+      </section>
+
+      <section id="focus-adjustment-detail" class="section" data-page="focus-adjustment-detail" aria-labelledby="focus-adjustment-title">
+        <div class="collection-toolbar"><button type="button" data-go="maintenance">‹ 返回日常维护</button></div>
+        <div class="section-heading section-heading--page"><h2 id="focus-adjustment-title">修改焦点位置</h2></div>
+        <div id="focus-adjustment-content"></div>
+      </section>
+
       <section id="safety" class="section" data-page="safety" aria-labelledby="safety-title">
         <div class="section-heading section-heading--page"><div><h2 id="safety-title">安全事项</h2></div></div>
         <div id="safety-list" class="entry-list"></div>
@@ -117,6 +130,6 @@
     <div class="empty-state"><span aria-hidden="true">＋</span><h3>内容待录入</h3><p>在 <code>data/manual.json</code> 中增加项目后，这里会自动显示。</p></div>
   </template>
   <script src="./js/update-state.js?v=2" defer></script>
-  <script src="./js/app.js?v=13" defer></script>
+  <script src="./js/app.js?v=15" defer></script>
 </body>
 </html>
