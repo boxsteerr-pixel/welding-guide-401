@@ -1,7 +1,14 @@
-const CACHE_NAME = "welding-guide-401-v12";
+const CACHE_NAME = "welding-guide-401-v17";
 const CACHE_PREFIX = "welding-guide-401-";
 const APP_ROOT = new URL("./", self.location.href);
 const CORE_ASSETS = [
+  "./assets/images/gas-nozzle-damaged.webp",
+  "./assets/images/gas-nozzle-normal.webp",
+  "./assets/images/cooling-water-valve-location.png",
+  "./assets/images/cooling-water-stop-selectors.png",
+  "./assets/images/cooling-water-location.png",
+  "./assets/images/cooling-water-selectors.png",
+  "./assets/images/cooling-water-valves.png",
   "./assets/images/laser-source-query-step-1.jpg",
   "./assets/images/laser-source-query-step-2.jpg",
   "./assets/images/laser-source-query-step-3.jpg",
@@ -17,7 +24,7 @@ const CORE_ASSETS = [
   "./assets/images/circulation-pump-filter-location.png",
   "./assets/images/circulation-pump-filter-switch.png",
   "./assets/images/scrap-belt-location.png",
-  "./assets/images/scrap-belt-unlock.png",
+  "./assets/images/scrap-belt-unlock-v2.png",
   "./assets/images/scrap-belt-adjust.png",
   "./assets/images/scrap-belt-lock.png",
   "./css/mobile-header.css?v=1",
@@ -27,7 +34,7 @@ const CORE_ASSETS = [
   "./css/style.css",
   "./css/style.css?v=9",
   "./js/app.js",
-  "./js/app.js?v=9",
+  "./js/app.js?v=13",
   "./js/update-state.js?v=2",
   "./data/manual.json",
   "./manifest.json",

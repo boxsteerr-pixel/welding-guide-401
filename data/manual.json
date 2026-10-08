@@ -4,15 +4,15 @@
     "machineId": "401",
     "machineName": "401激光焊机",
     "manualTitle": "操作工快速处置手册",
-    "manualVersion": "0.2.0",
-    "contentStatus": "已录入4项异常处理",
-    "lastUpdated": "2026-10-07"
+    "manualVersion": "0.3.2",
+    "contentStatus": "已录入5项异常处理、6项日常维护",
+    "lastUpdated": "2026-10-08"
   },
   "notices": [
     {
       "level": "warning",
       "title": "内容范围",
-      "body": "当前已录入4项异常处理手顺；日常维护和安全事项内容待录入。"
+      "body": "当前已录入5项异常处理手顺及6项日常维护；安全事项内容待录入。"
     }
   ],
   "faults": [
@@ -33,7 +33,7 @@
           "step": "1", "title": "松开锁紧螺母",
           "paragraphs": ["找到调节装置外侧的大锁紧螺母。"],
           "emphasis": [{"text": "逆时针旋转外侧大的锁紧螺母，将锁紧螺母松开。"}],
-          "image": "./assets/images/scrap-belt-unlock.png",
+          "image": "./assets/images/scrap-belt-unlock-v2.png",
           "caption": "先松开外侧锁紧螺母"
         },
         {
@@ -137,8 +137,130 @@
         {"step": "5", "title": "微调未锁轴侧位置", "paragraphs": ["对未锁轴处夹紧台进行微调，直至两侧实际值接近，差值约 1 mm。"], "image": "./assets/images/clamp-platform-step-5.webp", "caption": "微调未锁轴侧位置"},
         {"step": "6", "title": "取消锁定并恢复动作", "paragraphs": ["数值调整完成后，取消锁定轴、取消调整模式；回到出入口画面，点击夹紧台位置前后移动，确认故障消除。"], "image": "./assets/images/clamp-platform-step-6.webp", "caption": "取消锁定并恢复动作"}
       ]
+    },
+    {
+      "id": "cooling-water-switch",
+      "title": "401焊机冷却水切换",
+      "pageTitle": "401焊机｜冷却水切换手顺",
+      "summary": "1#机运行、2#机备机运行 → 2#机运行、1#机备机运行",
+      "keywords": ["冷却水切换", "冷却器", "冷水机", "12个阀门", "运行冷水机选择开关", "备用冷水机选择开关"],
+      "guide": [
+        {
+          "title": "切换前 → 切换后",
+          "emphasis": [{"text": "当前：1#机运行，2#机备机运行"}, {"text": "切换后：2#机运行，1#机备机运行", "tone": "red"}],
+          "paragraphs": ["冷水机因故障已停机时，只可跳过将三个选择开关切至中间停止位的操作。后续阀门切换及运行／备用开关切换仍需执行。"]
+        },
+        {
+          "step": "01", "title": "确认冷却器与切换阀站位置",
+          "emphasis": [{"text": "2#冷却器位于焊机出口传动侧"}, {"text": "切换阀站在焊机入口传动侧"}],
+          "image": "./assets/images/cooling-water-location.png",
+          "caption": "401现场：2#冷却器在焊机出口传动侧",
+          "images": [{"image": "./assets/images/cooling-water-valve-location.png", "caption": "401现场：切换阀站在焊机入口传动侧"}]
+        },
+        {
+          "step": "02", "title": "确认当前状态并切至停止位",
+          "paragraphs": ["确认现场有三个选择开关：左侧两个为运行冷水机选择开关，右侧为备用冷水机选择开关。"],
+          "emphasis": [{"text": "冷水机所有切换开关均位于2#机面板上。"}, {"text": "将三个选择开关均切至中间“停止”位。", "tone": "red"}, {"text": "如冷水机因故障已停机，可跳过本步切至中间停止位的操作。", "tone": "red"}],
+          "image": "./assets/images/cooling-water-stop-selectors.png",
+          "caption": "401三个选择开关：中间“停止”位置"
+        },
+        {
+          "step": "03", "title": "切换12个冷却水阀门",
+          "paragraphs": ["当前为1#机使用状态，阀门垂直。切换至2#机时，依次完成全部橘红色阀门切换。"],
+          "emphasis": [{"text": "12个阀门全部逆时针旋转90°：垂直 → 水平。", "tone": "red"}, {"text": "逐一确认12个阀门全部到位，不得遗漏。", "tone": "red"}],
+          "image": "./assets/images/cooling-water-valves.png",
+          "caption": "401阀组：共12个橘红色阀门，逆时针90°，垂直切为水平"
+        },
+        {
+          "step": "04", "title": "设置运行与备用冷水机开关",
+          "emphasis": [{"text": "左侧两个运行冷水机选择开关：1#机运行 → 2#机运行", "tone": "red"}, {"text": "右侧备用冷水机选择开关：2#机备机运行 → 1#机备机运行", "tone": "red"}],
+          "paragraphs": ["本步仍需执行。图中“故障停机可跳过此步骤”仅指STEP 02切至中间停止位，不代表可跳过运行／备用开关切换。"],
+          "image": "./assets/images/cooling-water-selectors.png",
+          "caption": "401三个选择开关：左侧两个切至2#机运行，右侧切至1#机备机运行"
+        },
+        {
+          "step": "05", "title": "确认切换完成",
+          "notes": ["两个运行冷水机选择开关均已切至2#机运行。", "备用冷水机选择开关已切至1#机备机运行。", "12个冷却水阀门均处于水平位置，全部完成切换。"],
+          "footer": "最终状态：2#机运行，1#机备机运行。"
+        }
+      ]
     }
   ],
-  "maintenance": [],
+  "maintenance": [
+    {
+      "id": "gas-nozzle-cleaning",
+      "title": "保护气体喷嘴清理",
+      "summary": "防止气孔、穿透底下、飞溅增多",
+      "keywords": ["保护气体", "喷嘴", "清理"],
+      "guide": [
+        {"title": "维护目的", "paragraphs": ["防止喷嘴堵塞、偏吹，避免保护气不足导致焊缝出现气孔、穿透底下，飞溅增多等缺陷。"]},
+        {"title": "操作方法", "notes": ["确认焊机停止，焊接区域处于安全状态，插上小车及导向轮安全销。", "检查保护气喷嘴口是否有飞溅物、堵塞。", "使用专用工具清理喷嘴外部和喷嘴口。", "清理后确认喷嘴无异物。"]},
+        {"title": "注意事项", "emphasis": [{"text": "禁止用硬物强行敲击喷嘴，防止喷嘴变形。", "tone": "red"}]},
+        {"title": "维护周期", "paragraphs": ["每班检查，以及批量填丝后检查，发现污染及时清理。"]},
+        {"title": "喷嘴对照：损坏", "image": "./assets/images/gas-nozzle-damaged.webp", "caption": "损坏的喷嘴（参照101同项目图片）"},
+        {"title": "喷嘴对照：正常", "image": "./assets/images/gas-nozzle-normal.webp", "caption": "正常喷嘴（参照101同项目图片）"}
+      ]
+    },
+    {
+      "id": "scissors-cleaning",
+      "title": "剪刀清理",
+      "summary": "保证剪切端面清洁",
+      "keywords": ["剪刀", "擦灰", "清理", "剪切端面"],
+      "guide": [
+        {"title": "维护目的", "paragraphs": ["防止剪切区域灰尘、铁屑堆积，影响剪切端面质量，避免端面毛刺、间隙异常影响焊接。"]},
+        {"title": "操作方法", "notes": ["确认剪刀处于停止和安全状态。", "清理剪刀附近灰尘、铁屑和油污。", "擦拭剪刀周边可接触区域，保持端面区域清洁。", "检查剪切区域是否有残留废边或异物。"]},
+        {"title": "注意事项", "paragraphs": ["不插剪刀安全销情况下，可使用入口传动侧压缩空软管吹扫。"], "emphasis": [{"text": "禁止未插上剪刀安全销时把手伸入剪刃危险区域。", "tone": "red"}]},
+        {"title": "维护周期", "paragraphs": ["每班检查，剪切异常或端面灰尘多时及时清理。"]}
+      ]
+    },
+    {
+      "id": "secondary-scrap-cleaning",
+      "title": "二次剪切废边清理",
+      "summary": "防止废边堆积、卡阻",
+      "keywords": ["二次剪切", "废边", "清理"],
+      "guide": [
+        {"title": "维护目的", "paragraphs": ["防止废边堆积影响二次剪切动作，避免废边卡阻、带钢端面异常或设备报警。"]},
+        {"title": "操作方法", "notes": ["确认二次剪切区域停止动作。", "检查废边收集区域是否堆积。", "使用指定工具清理废边，不得徒手拉拽卡住的废边。", "清理后确认废边通道畅通。"]},
+        {"title": "注意事项", "emphasis": [{"text": "禁止在剪切动作未停止时清理废边。", "tone": "red"}, {"text": "废边锋利，必须佩戴手套。", "tone": "red"}]},
+        {"title": "维护周期", "paragraphs": ["每班检查，废边堆积时立即清理。"]}
+      ]
+    },
+    {
+      "id": "clamp-air-cleaning",
+      "title": "夹钳吹灰",
+      "summary": "防止夹紧不牢",
+      "keywords": ["夹钳", "吹灰", "压缩空气"],
+      "guide": [
+        {"title": "维护目的", "paragraphs": ["防止夹钳表面积灰、铁屑、氧化皮导致夹紧不牢、错边、焊缝不稳定。"]},
+        {"title": "操作方法", "notes": ["确认夹钳处于安全打开或停止状态。", "使用压缩空气吹扫夹钳表面、夹紧面和周边缝隙。", "检查夹钳表面是否有压痕、异物、粘附铁屑。", "吹扫后确认夹钳夹紧面干净。"]},
+        {"title": "注意事项", "emphasis": [{"text": "吹灰时佩戴护目镜。", "tone": "red"}, {"text": "禁止在夹钳动作时伸手清理。", "tone": "red"}, {"text": "压缩空气不得对人吹。", "tone": "red"}]},
+        {"title": "维护周期", "paragraphs": ["每班检查，焊接前重点确认。"]}
+      ]
+    },
+    {
+      "id": "car-rail-cleaning",
+      "title": "焊接小车轨道清擦",
+      "summary": "保证小车运行平稳",
+      "keywords": ["焊接小车", "轨道", "清擦"],
+      "guide": [
+        {"title": "维护目的", "paragraphs": ["防止轨道积灰、铁屑、油污导致焊接小车运行不平稳，影响激光与焊缝位置稳定。"]},
+        {"title": "操作方法", "notes": ["确认焊接小车停止运行。", "检查轨道表面是否有灰尘、铁屑、油污。", "使用干净抹布擦拭轨道表面。", "清理小车运行范围内的异物。", "清理后确认小车轨道无明显卡阻和污染。"]},
+        {"title": "注意事项", "emphasis": [{"text": "禁止在小车运行过程中清理轨道。", "tone": "red"}, {"text": "不得将工具遗留在小车运行区域。", "tone": "red"}, {"text": "发现小车运行异响、卡滞，应通知点检。", "tone": "red"}]},
+        {"title": "维护周期", "paragraphs": ["每班检查，每日清擦。"]}
+      ]
+    },
+    {
+      "id": "guide-wheel-cleaning",
+      "title": "导向轮清渣",
+      "summary": "防止下保护气喷嘴装置损坏",
+      "keywords": ["导向轮", "清渣", "结渣"],
+      "guide": [
+        {"title": "维护目的", "paragraphs": ["防止导向轮结渣造成下保护气喷嘴装置损坏，或穿透率异常报警。"]},
+        {"title": "操作方法", "notes": ["确认设备停止。", "插上小车安全销，导向轮安全销。", "使用工具清理导向轮侧面结渣。"]},
+        {"title": "注意事项", "emphasis": [{"text": "戴好手套清理导向轮，防止烫伤。", "tone": "red"}, {"text": "清理时注意防止铁屑飞入眼睛。", "tone": "red"}]},
+        {"title": "维护周期", "paragraphs": ["发现积渣严重及时清理，一般点检会提前清理。"]}
+      ]
+    }
+  ],
   "safety": []
 }

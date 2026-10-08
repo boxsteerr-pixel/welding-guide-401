@@ -13,8 +13,8 @@ const manifest = JSON.parse(manifestText);
 
 assert.equal(manual.machine.machineId, "401");
 assert.equal(manual.machine.machineName, "401激光焊机");
-assert.equal(manual.machine.manualVersion, "0.2.0");
-assert.equal(manual.faults.length, 4);
+assert.equal(manual.machine.manualVersion, "0.3.2");
+assert.equal(manual.faults.length, 5);
 assert.equal(manual.faults[0].id, "double-cut-scrap-belt-speed");
 const guide = manual.faults[0].guide;
 assert.deepEqual(guide.filter(block => block.step).map(block => block.step), ["1", "2", "3"]);
@@ -22,7 +22,14 @@ for (const block of guide.filter(block => block.image)) {
   await stat(path.join(root, block.image));
   assert.ok(sw.includes(`"${block.image}"`));
 }
-assert.deepEqual(manual.maintenance, []);
+assert.deepEqual(manual.maintenance.map(item => item.id), ["gas-nozzle-cleaning", "scissors-cleaning", "secondary-scrap-cleaning", "clamp-air-cleaning", "car-rail-cleaning", "guide-wheel-cleaning"]);
+assert.ok(manual.maintenance.slice(2).every(item => item.guide.every(block => !block.image && !block.images)), "本次四项维护不应带图片");
+for (const item of manual.maintenance) {
+  for (const block of item.guide.filter(block => block.image)) {
+    await stat(path.join(root, block.image));
+    assert.ok(sw.includes(`"${block.image}"`));
+  }
+}
 assert.deepEqual(manual.safety, []);
 const filter = manual.faults[1];
 assert.equal(filter.id, "circulation-pump-filter-alarm");
@@ -34,13 +41,29 @@ assert.equal(filterImages.length, 2);
 for (const image of filterImages) { await stat(path.join(root, image)); assert.ok(sw.includes(`"${image}"`)); }
 assert.equal(manifest.start_url, "./");
 assert.equal(manifest.scope, "./");
-assert.match(sw, /const CACHE_NAME = "welding-guide-401-v12"/);
-for (const entry of manual.faults.slice(2)) {
+assert.match(sw, /const CACHE_NAME = "welding-guide-401-v17"/);
+for (const entry of manual.faults.slice(2, 4)) {
   const steps = entry.guide.filter(block => block.step);
   assert.deepEqual(steps.map(block => block.step), ["1", "2", "3", "4", "5", "6"]);
   for (const step of steps) { await stat(path.join(root, step.image)); assert.ok(sw.includes(`"${step.image}"`)); }
 }
 assert.match(sw, /const CACHE_PREFIX = "welding-guide-401-"/);
+const cooling = manual.faults[4];
+assert.equal(cooling.id, "cooling-water-switch");
+assert.deepEqual(cooling.guide.filter(block => block.step).map(block => block.step), ["01", "02", "03", "04", "05"]);
+assert.match(JSON.stringify(cooling), /12个阀门全部逆时针旋转90°/);
+assert.doesNotMatch(JSON.stringify(cooling), /顺时针|停顿片刻|无流量|压力值/);
+for (const block of cooling.guide.filter(block => block.image)) {
+  await stat(path.join(root, block.image));
+  assert.ok(sw.includes(`"${block.image}"`));
+}
+assert.match(JSON.stringify(cooling), /切换阀站在焊机入口传动侧/);
+assert.equal(cooling.guide.find(block => block.step === "01").images.length, 1);
+assert.equal(cooling.guide.find(block => block.step === "02").image, "./assets/images/cooling-water-stop-selectors.png");
+for (const picture of cooling.guide.flatMap(block => block.images || [])) {
+  await stat(path.join(root, picture.image));
+  assert.ok(sw.includes(`"${picture.image}"`));
+}
 assert.match(sw, /\.\/data\/manual\.json/);
 assert.match(app, /fetch\("\.\/data\/manual\.json"/);
 assert.match(html, /data-section="faults"/);

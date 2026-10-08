@@ -64,7 +64,7 @@
 
     const body = document.createElement("div");
     body.className = "entry-body";
-    if (["double-cut-scrap-belt-speed", "circulation-pump-filter-alarm", "laser-source-query", "clamp-platform-blocked"].includes(item.id) && Array.isArray(item.guide)) {
+    if (["double-cut-scrap-belt-speed", "circulation-pump-filter-alarm", "laser-source-query", "clamp-platform-blocked", "cooling-water-switch", "gas-nozzle-cleaning", "scissors-cleaning", "secondary-scrap-cleaning", "clamp-air-cleaning", "car-rail-cleaning", "guide-wheel-cleaning"].includes(item.id) && Array.isArray(item.guide)) {
       details.classList.add("belt-guide");
       if (item.pageTitle) {
         const heading = document.createElement("h2"); heading.append(text(item.pageTitle)); body.append(heading);
@@ -99,18 +99,20 @@
           block.notes.forEach(function (line) { const node = document.createElement("li"); node.append(text(line)); list.append(node); });
           card.append(list);
         }
-        if (block.image) {
-          const image = document.createElement("img"); image.src = block.image;
-          image.alt = block.caption; image.loading = "lazy"; image.tabIndex = 0;
-          image.setAttribute("role", "button"); image.setAttribute("aria-label", `查看大图：${block.caption}`);
+        const pictures = block.image ? [{image: block.image, caption: block.caption}] : [];
+        if (item.id === "cooling-water-switch" && Array.isArray(block.images)) pictures.push(...block.images);
+        pictures.forEach(function (picture) {
+          const image = document.createElement("img"); image.src = picture.image;
+          image.alt = picture.caption; image.loading = "lazy"; image.tabIndex = 0;
+          image.setAttribute("role", "button"); image.setAttribute("aria-label", `查看大图：${picture.caption}`);
           image.addEventListener("click", function () { openImage(image); });
           image.addEventListener("keydown", function (event) {
             if (event.key === "Enter" || event.key === " ") { event.preventDefault(); openImage(image); }
           });
-          const caption = document.createElement("p"); caption.className = "belt-caption"; caption.append(text(block.caption));
+          const caption = document.createElement("p"); caption.className = "belt-caption"; caption.append(text(picture.caption));
           const hint = document.createElement("span"); hint.className = "image-hint"; hint.append(text("点击查看大图"));
           card.append(image, caption, hint);
-        }
+        });
         body.append(card);
       });
       details.append(summary, body);
