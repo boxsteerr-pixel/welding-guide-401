@@ -72,7 +72,10 @@ assert.equal(filterImages.length, 2);
 for (const image of filterImages) { await stat(path.join(root, image)); assert.ok(sw.includes(`"${image}"`)); }
 assert.equal(manifest.start_url, "./");
 assert.equal(manifest.scope, "./");
-assert.match(sw, /const CACHE_NAME = "welding-guide-401-v20"/);
+assert.match(sw, /const CACHE_NAME = "welding-guide-401-v21"/);
+assert.match(html, /id="currentTime"/);
+assert.match(html, /system-time\.js\?v=1/);
+assert.match(sw, /system-time\.js\?v=1/);
 for (const entry of manual.faults.slice(2, 4)) {
   const steps = entry.guide.filter(block => block.step);
   assert.deepEqual(steps.map(block => block.step), ["1", "2", "3", "4", "5", "6"]);

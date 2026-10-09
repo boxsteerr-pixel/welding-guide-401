@@ -1,4 +1,4 @@
-const CACHE_NAME = "welding-guide-401-v20";
+const CACHE_NAME = "welding-guide-401-v21";
 const CACHE_PREFIX = "welding-guide-401-";
 const APP_ROOT = new URL("./", self.location.href);
 const CORE_ASSETS = [
@@ -32,7 +32,8 @@ const CORE_ASSETS = [
   "./assets/images/scrap-belt-unlock-v2.png",
   "./assets/images/scrap-belt-adjust.png",
   "./assets/images/scrap-belt-lock.png",
-  "./css/mobile-header.css?v=1",
+  "./css/mobile-header.css?v=2",
+  "./js/system-time.js?v=1",
   "./",
   "./index.html",
   "./css/home-link.css?v=5",
