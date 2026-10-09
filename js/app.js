@@ -82,9 +82,6 @@
         event.preventDefault();
         showSection("maintenance", { item: item.id });
       });
-      const draft = document.createElement("small");
-      draft.className = "focus-check-draft";
-      draft.append(text("待现场确认")); title.append(draft);
       details.append(summary);
       return details;
     }

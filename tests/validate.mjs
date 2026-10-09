@@ -13,7 +13,7 @@ const manifest = JSON.parse(manifestText);
 
 assert.equal(manual.machine.machineId, "401");
 assert.equal(manual.machine.machineName, "401激光焊机");
-assert.equal(manual.machine.manualVersion, "0.3.3");
+assert.equal(manual.machine.manualVersion, "0.3.4");
 assert.equal(manual.faults.length, 5);
 assert.equal(manual.faults[0].id, "double-cut-scrap-belt-speed");
 const guide = manual.faults[0].guide;
@@ -26,13 +26,13 @@ assert.deepEqual(manual.maintenance.map(item => item.id), ["gas-nozzle-cleaning"
 assert.ok(manual.maintenance.slice(2, 6).every(item => item.guide.every(block => !block.image && !block.images)), "原有四项维护不应带图片");
 const focus = manual.maintenance[6];
 assert.equal(focus.approvalStatus, "pending-site-confirmation");
-assert.deepEqual(focus.guide.map(block => block.step), ["01", "02", "03", "04"]);
+assert.deepEqual(focus.guide.map(block => block.step), ["01", "02", "03"]);
 assert.equal(focus.guide[0].image, "./assets/images/focus-check-overview.png");
 assert.equal(focus.guide[1].image, "./assets/images/focus-check-adjustment.png");
-assert.equal(focus.guide[3].image, focus.guide[1].image);
-assert.ok(!focus.guide[2].image);
-assert.equal(focus.guide[2].notes.length, 4);
-assert.ok(focus.guide[2].notes.every(line => line.includes("待现场确认")));
+assert.equal(focus.guide[2].image, focus.guide[1].image);
+assert.equal(focus.guide[2].title, "退出段焊模式");
+assert.doesNotMatch(JSON.stringify(focus.guide), /进行焦点位置检查（待现场确认）/);
+assert.doesNotMatch(html.match(/<section id="maintenance-detail"[\s\S]*?<\/section>/)[0], /本地草稿 · 待现场确认/);
 assert.doesNotMatch(JSON.stringify(focus), /\d+\s*(?:mm|μm|W|kW|m\/min|秒)/);
 assert.match(JSON.stringify(focus), /模式切换不等于允许激光发射/);
 assert.match(JSON.stringify(focus), /退出段焊模式不代表设备已自动满足/);
@@ -72,7 +72,7 @@ assert.equal(filterImages.length, 2);
 for (const image of filterImages) { await stat(path.join(root, image)); assert.ok(sw.includes(`"${image}"`)); }
 assert.equal(manifest.start_url, "./");
 assert.equal(manifest.scope, "./");
-assert.match(sw, /const CACHE_NAME = "welding-guide-401-v19"/);
+assert.match(sw, /const CACHE_NAME = "welding-guide-401-v20"/);
 for (const entry of manual.faults.slice(2, 4)) {
   const steps = entry.guide.filter(block => block.step);
   assert.deepEqual(steps.map(block => block.step), ["1", "2", "3", "4", "5", "6"]);
