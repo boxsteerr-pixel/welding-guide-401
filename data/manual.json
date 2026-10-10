@@ -8,13 +8,7 @@
     "contentStatus": "已录入5项异常处理、8项日常维护",
     "lastUpdated": "2026-10-09"
   },
-  "notices": [
-    {
-      "level": "warning",
-      "title": "内容范围",
-      "body": "当前已录入5项异常处理手顺及8项日常维护；两项焦点相关手顺的未核实内容仍按页面标记待现场确认。安全事项内容待录入。"
-    }
-  ],
+  "notices": [],
   "faults": [
     {
       "id": "double-cut-scrap-belt-speed",
