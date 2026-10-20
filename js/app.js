@@ -126,7 +126,7 @@
         const pictures = block.image ? [{image: block.image, caption: block.caption}] : [];
         if (["cooling-water-switch", focusAdjustmentId].includes(item.id) && Array.isArray(block.images)) pictures.push(...block.images);
         pictures.forEach(function (picture) {
-          const image = document.createElement("img"); image.src = picture.image;
+          const image = document.createElement("img");
           image.alt = picture.caption; image.loading = "lazy"; image.tabIndex = 0;
           image.setAttribute("role", "button"); image.setAttribute("aria-label", `查看大图：${picture.caption}`);
           image.addEventListener("click", function () { openImage(image); });
@@ -136,6 +136,7 @@
           const caption = document.createElement("p"); caption.className = "belt-caption"; caption.append(text(picture.caption));
           const hint = document.createElement("span"); hint.className = "image-hint"; hint.append(text("点击查看大图"));
           card.append(image, caption, hint);
+          prepareManualImage(image, picture.image, hint, card);
         });
         body.append(card);
       });
@@ -166,7 +167,6 @@
         card.append(strong, paragraph);
         if (step.image) {
           const image = document.createElement("img");
-          image.src = step.image;
           image.alt = step.alt || step.title || item.title || "操作步骤图片";
           image.loading = "lazy";
           image.addEventListener("click", function () { openImage(image); });
@@ -174,12 +174,48 @@
           hint.className = "image-hint";
           hint.append(text("点击查看大图"));
           card.append(image, hint);
+          prepareManualImage(image, step.image, hint, card);
         }
         body.append(card);
       });
     }
     details.append(summary, body);
     return details;
+  }
+
+  function prepareManualImage(image, source, hint, card) {
+    const url = source.replace(/assets\/images\/([^/]+)\.png$/, "assets/images/optimized/$1.webp");
+    image.decoding = "async";
+    image.dataset.imageSource = url;
+    const retry = document.createElement("button");
+    retry.type = "button"; retry.className = "image-retry"; retry.hidden = true;
+    retry.append(text("图片加载失败，点击重试"));
+    const start = function () {
+      retry.hidden = true;
+      delete image.dataset.loadFailed;
+      hint.textContent = "图片加载中…";
+      image.removeAttribute("src");
+      image.src = url;
+    };
+    image.retryLoad = start;
+    image.addEventListener("load", function () {
+      delete image.dataset.loadFailed; retry.hidden = true;
+      hint.textContent = "点击查看大图 · 双指缩放";
+    });
+    image.addEventListener("error", function () {
+      image.dataset.loadFailed = "true"; retry.hidden = false;
+      hint.textContent = "请检查网络后重试；未缓存的图片无法离线查看。";
+    });
+    retry.addEventListener("click", start);
+    card.append(retry);
+    if (typeof IntersectionObserver === "function") {
+      if (!window.manualImageObserver) window.manualImageObserver = new IntersectionObserver(function (entries, observer) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) { observer.unobserve(entry.target); entry.target.retryLoad(); }
+        });
+      }, { rootMargin: "160px 0px" });
+      window.manualImageObserver.observe(image);
+    } else start();
   }
 
   function emptyState() {
@@ -192,6 +228,7 @@
 
   function renderCollection(selector, items, query) {
     const container = document.querySelector(selector);
+    if (window.manualImageObserver) container.querySelectorAll("img").forEach(function (image) { window.manualImageObserver.unobserve(image); });
     container.replaceChildren();
     const normalizedQuery = (query || "").trim().toLocaleLowerCase("zh-CN");
     const filtered = normalizedQuery ? items.filter(function (item) { return searchableText(item).includes(normalizedQuery); }) : items;
@@ -429,6 +466,10 @@
     node.classList.toggle("offline", !navigator.onLine);
   }
   window.addEventListener("online", updateNetworkStatus);
+  window.addEventListener("online", function () {
+    document.querySelectorAll('img[data-load-failed="true"]').forEach(function (image) { image.retryLoad(); });
+    scheduleMediaCache();
+  });
   window.addEventListener("offline", updateNetworkStatus);
   updateNetworkStatus();
 
@@ -447,8 +488,36 @@
   });
   window.addEventListener("appinstalled", function () { state.deferredInstallPrompt = null; installButton.hidden = true; });
 
+  let mediaCacheTimer;
+  function scheduleMediaCache(delay) {
+    if (!("serviceWorker" in navigator)) return;
+    window.clearTimeout(mediaCacheTimer);
+    mediaCacheTimer = window.setTimeout(function () {
+      if (!navigator.onLine || document.hidden) return;
+      navigator.serviceWorker.ready.then(function (registration) {
+        const worker = navigator.serviceWorker.controller || registration.active;
+        if (worker) worker.postMessage({ type: "CACHE_MEDIA" });
+      }).catch(function () {});
+    }, typeof delay === "number" ? delay : 15000);
+  }
+
   if ("serviceWorker" in navigator) {
+    const offlineProgress = document.querySelector("#offline-progress");
+    navigator.serviceWorker.addEventListener("message", function (event) {
+      if (!event.data || event.data.type !== "MEDIA_PROGRESS") return;
+      const progress = event.data;
+      offlineProgress.textContent = progress.completed === progress.total
+        ? "离线图片已就绪" : `离线图片：${progress.completed}/${progress.total}，点击重试`;
+    });
+    offlineProgress.addEventListener("click", function () { scheduleMediaCache(0); });
+    document.addEventListener("visibilitychange", function () { if (!document.hidden) scheduleMediaCache(); });
+    navigator.serviceWorker.addEventListener("controllerchange", scheduleMediaCache);
     window.addEventListener("load", function () {
+      scheduleMediaCache();
+      navigator.serviceWorker.ready.then(function (registration) {
+        const worker = navigator.serviceWorker.controller || registration.active;
+        if (worker) worker.postMessage({ type: "CACHE_STATUS" });
+      }).catch(function () {});
       navigator.serviceWorker.register("./service-worker.js", { scope: "./" }).catch(function (error) {
         console.error("设备手册 Service Worker 注册失败", error);
       });

@@ -1,7 +1,7 @@
-const CACHE_NAME = "welding-guide-401-v23";
+const CACHE_NAME = "welding-guide-401-v24";
 const CACHE_PREFIX = "welding-guide-401-";
 const APP_ROOT = new URL("./", self.location.href);
-const CORE_ASSETS = [
+const MEDIA_SOURCES = [
   "./assets/images/focus-adjustment-entry.png",
   "./assets/images/focus-adjustment-parameters.png",
   "./assets/images/focus-adjustment-accept.png",
@@ -32,15 +32,18 @@ const CORE_ASSETS = [
   "./assets/images/scrap-belt-unlock-v2.png",
   "./assets/images/scrap-belt-adjust.png",
   "./assets/images/scrap-belt-lock.png",
+];
+const MEDIA_ASSETS = MEDIA_SOURCES.map(function (path) { return new URL(path.replace(/assets\/images\/([^/]+)\.png$/, "assets/images/optimized/$1.webp"), APP_ROOT).toString(); });
+const CORE_ASSETS = [
   "./css/mobile-header.css?v=2",
   "./js/system-time.js?v=1",
   "./",
   "./index.html",
   "./css/home-link.css?v=5",
   "./css/style.css",
-  "./css/style.css?v=11",
+  "./css/style.css?v=12",
   "./js/app.js",
-  "./js/app.js?v=17",
+  "./js/app.js?v=18",
   "./js/update-state.js?v=2",
   "./data/manual.json",
   "./manifest.json",
@@ -53,19 +56,68 @@ function isCacheable(response) {
   return response && response.ok && response.type !== "opaque";
 }
 
+let foregroundImages = 0;
+let mediaCacheJob;
+const pause = function (ms) { return new Promise(function (resolve) { setTimeout(resolve, ms); }); };
+
+async function fetchImage(request) {
+  let error;
+  for (let attempt = 0; attempt < 2; attempt++) {
+    const controller = new AbortController();
+    const timer = setTimeout(function () { controller.abort(); }, 15000);
+    try {
+      const response = await fetch(request, { signal: controller.signal, cache: attempt ? "reload" : "default", priority: foregroundImages ? "high" : "low" });
+      if (!isCacheable(response)) throw new Error("Image HTTP " + response.status);
+      return response;
+    } catch (failure) { error = failure; }
+    finally { clearTimeout(timer); }
+  }
+  throw error;
+}
+
+async function mediaProgress(client) {
+  const cache = await caches.open(CACHE_NAME);
+  let completed = 0;
+  for (const url of MEDIA_ASSETS) if (await cache.match(url)) completed++;
+  if (client) client.postMessage({ type: "MEDIA_PROGRESS", completed: completed, total: MEDIA_ASSETS.length });
+  return completed;
+}
+
+async function cacheMedia(client) {
+  const cache = await caches.open(CACHE_NAME);
+  for (const url of MEDIA_ASSETS) {
+    if (await cache.match(url)) continue;
+    while (foregroundImages) await pause(250);
+    try {
+      const response = await fetchImage(url);
+      await cache.put(url, response);
+    } catch (_) { /* Preserve successful files; retry missing files on the next request. */ }
+    await mediaProgress(client);
+    await pause(300);
+  }
+  if (await mediaProgress(client) === MEDIA_ASSETS.length) await removeOldCaches();
+}
+
+async function removeOldCaches() {
+  const names = await caches.keys();
+  await Promise.all(names.filter(function (name) { return name.startsWith(CACHE_PREFIX) && name !== CACHE_NAME; }).map(function (name) { return caches.delete(name); }));
+}
+
+self.addEventListener("message", function (event) {
+  if (event.data && event.data.type === "CACHE_STATUS") event.waitUntil(mediaProgress(event.source));
+  if (event.data && event.data.type === "CACHE_MEDIA") {
+    if (!mediaCacheJob) mediaCacheJob = cacheMedia(event.source).finally(function () { mediaCacheJob = null; });
+    event.waitUntil(mediaCacheJob);
+  }
+});
+
 self.addEventListener("install", function (event) {
   event.waitUntil(caches.open(CACHE_NAME).then(function (cache) { return cache.addAll(CORE_ASSETS); }));
 });
 
 self.addEventListener("activate", function (event) {
-  event.waitUntil(Promise.all([
-    self.clients.claim(),
-    caches.keys().then(function (names) {
-      return Promise.all(names.filter(function (name) {
-        return name.startsWith(CACHE_PREFIX) && name !== CACHE_NAME;
-      }).map(function (name) { return caches.delete(name); }));
-    })
-  ]));
+  // Keep old resources until this version has successfully cached all new images.
+  event.waitUntil(self.clients.claim());
 });
 
 async function networkFirst(request) {
@@ -73,7 +125,7 @@ async function networkFirst(request) {
     const response = await fetch(request);
     if (isCacheable(response)) {
       const cache = await caches.open(CACHE_NAME);
-      await cache.put(request, response.clone());
+      try { await cache.put(request, response.clone()); } catch (_) { /* Storage limits must not hide a successful network response. */ }
     }
     return response;
   } catch (error) {
@@ -85,14 +137,15 @@ async function networkFirst(request) {
 }
 
 async function cacheFirst(request) {
-  const cached = await (await caches.open(CACHE_NAME)).match(request);
+  const cached = await caches.match(request);
   if (cached) return cached;
-  const response = await fetch(request);
-  if (isCacheable(response)) {
+  foregroundImages++;
+  try {
+    const response = await fetchImage(request);
     const cache = await caches.open(CACHE_NAME);
-    await cache.put(request, response.clone());
-  }
-  return response;
+    try { await cache.put(request, response.clone()); } catch (_) { /* Allow viewing even when device storage is full. */ }
+    return response;
+  } finally { foregroundImages--; }
 }
 
 self.addEventListener("fetch", function (event) {
@@ -103,5 +156,5 @@ self.addEventListener("fetch", function (event) {
     event.respondWith(networkFirst(request));
     return;
   }
-  if (["image", "font", "video", "audio"].includes(request.destination)) event.respondWith(cacheFirst(request));
+  if (["image", "font", "video", "audio"].includes(request.destination) || /\.(webp|png|jpe?g)$/.test(url.pathname)) event.respondWith(cacheFirst(request));
 });

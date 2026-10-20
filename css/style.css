@@ -239,3 +239,7 @@ button:focus-visible, input:focus-visible, summary:focus-visible { outline:3px s
 #maintenance-list .focus-check-draft { display:block; margin-top:4px; color:#9a5a18; font-size:13px; }
 #focus-adjustment-detail summary[hidden] { display:none; }
 #focus-adjustment-detail .notice { margin-bottom:14px; }
+.image-retry { display:block; margin:10px auto; padding:12px 16px; min-height:44px; border:1px solid #1269ad; border-radius:8px; background:#edf6fd; color:#075b9b; font:inherit; }
+.image-retry[hidden] { display:none; }
+.offline-progress { margin-top:8px; padding:8px 0; border:0; background:transparent; color:inherit; font:inherit; font-size:13px; text-align:left; }
+.step-card img:not([src]) { min-height:100px; }

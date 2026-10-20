@@ -4,9 +4,9 @@
     "machineId": "401",
     "machineName": "401激光焊机",
     "manualTitle": "操作工快速处置手册",
-    "manualVersion": "0.3.4",
+    "manualVersion": "0.3.5",
     "contentStatus": "已录入5项异常处理、8项日常维护",
-    "lastUpdated": "2026-10-09"
+    "lastUpdated": "2026-10-20"
   },
   "notices": [],
   "faults": [
