@@ -4,9 +4,9 @@
     "machineId": "401",
     "machineName": "401激光焊机",
     "manualTitle": "操作工快速处置手册",
-    "manualVersion": "0.3.5",
+    "manualVersion": "0.3.6",
     "contentStatus": "已录入5项异常处理、8项日常维护",
-    "lastUpdated": "2026-10-20"
+    "lastUpdated": "2026-10-29"
   },
   "notices": [],
   "faults": [
@@ -14,44 +14,104 @@
       "id": "double-cut-scrap-belt-speed",
       "title": "双切剪废料皮带速度调整",
       "summary": "适用情况：双切剪废料皮带运行速度过快或过慢，需要对废料皮带速度进行调整时使用。",
-      "keywords": ["废料皮带", "双切剪", "速度调整"],
+      "keywords": [
+        "废料皮带",
+        "双切剪",
+        "速度调整"
+      ],
       "guide": [
         {
           "title": "阀组位置",
-          "paragraphs": ["废料皮带速度控制阀组位于焊机小车出口侧小阀台。", "到达小阀台后，找到现场标有“皮带”字样的阀组。", "该阀组中间位置为废料皮带速度调节装置。"],
-          "emphasis": [{"text": "焊机小车出口侧小阀台 → 标有“皮带”的阀组"}],
+          "paragraphs": [
+            "废料皮带速度控制阀组位于焊机小车出口侧小阀台。",
+            "到达小阀台后，找到现场标有“皮带”字样的阀组。",
+            "该阀组中间位置为废料皮带速度调节装置。"
+          ],
+          "emphasis": [
+            {
+              "text": "焊机小车出口侧小阀台 → 标有“皮带”的阀组"
+            }
+          ],
           "image": "./assets/images/scrap-belt-location.png",
           "caption": "废料皮带速度控制阀组——找到标有‘皮带’字样的阀组"
         },
         {
-          "step": "1", "title": "松开锁紧螺母",
-          "paragraphs": ["找到调节装置外侧的大锁紧螺母。"],
-          "emphasis": [{"text": "逆时针旋转外侧大的锁紧螺母，将锁紧螺母松开。"}],
+          "step": "1",
+          "title": "松开锁紧螺母",
+          "paragraphs": [
+            "找到调节装置外侧的大锁紧螺母。"
+          ],
+          "emphasis": [
+            {
+              "text": "逆时针旋转外侧大的锁紧螺母，将锁紧螺母松开。"
+            }
+          ],
           "image": "./assets/images/scrap-belt-unlock-v2.png",
           "caption": "先松开外侧锁紧螺母"
         },
         {
-          "step": "2", "title": "调整皮带速度",
-          "paragraphs": ["锁紧螺母松开后，调整中间的调节螺栓。", "“调节螺栓”指中间的小调节螺栓，不是外侧的大锁紧螺母。"],
-          "emphasis": [{"text": "顺时针旋转中间小调节螺栓 → 调快皮带速度", "tone": "red"}, {"text": "逆时针旋转中间小调节螺栓 → 调慢皮带速度", "tone": "blue"}],
+          "step": "2",
+          "title": "调整皮带速度",
+          "paragraphs": [
+            "锁紧螺母松开后，调整中间的调节螺栓。",
+            "“调节螺栓”指中间的小调节螺栓，不是外侧的大锁紧螺母。"
+          ],
+          "emphasis": [
+            {
+              "text": "顺时针旋转中间小调节螺栓 → 调快皮带速度",
+              "tone": "red"
+            },
+            {
+              "text": "逆时针旋转中间小调节螺栓 → 调慢皮带速度",
+              "tone": "blue"
+            }
+          ],
           "image": "./assets/images/scrap-belt-adjust.png",
           "caption": "调整中间调节螺栓，改变废料皮带速度"
         },
         {
-          "step": "3", "title": "调整完成后锁紧",
-          "paragraphs": ["确认废料皮带速度调整合适后，本步骤操作对象是外侧大锁紧螺母。"],
-          "emphasis": [{"text": "顺时针拧紧外侧大锁紧螺母，锁紧调节装置。"}],
+          "step": "3",
+          "title": "调整完成后锁紧",
+          "paragraphs": [
+            "确认废料皮带速度调整合适后，本步骤操作对象是外侧大锁紧螺母。"
+          ],
+          "emphasis": [
+            {
+              "text": "顺时针拧紧外侧大锁紧螺母，锁紧调节装置。"
+            }
+          ],
           "image": "./assets/images/scrap-belt-lock.png",
           "caption": "调整完成后，重新锁紧外侧锁紧螺母"
         },
         {
           "title": "快速记忆 · 废料皮带速度调整",
-          "flow": ["① 先松锁紧螺母", "② 再调中间调节螺栓", "③ 调整完成后重新锁紧"],
-          "emphasis": [{"text": "先松锁紧 → 再调速度 → 最后锁紧"}, {"text": "顺时针调节螺栓 → 皮带速度调快", "tone": "red"}, {"text": "逆时针调节螺栓 → 皮带速度调慢", "tone": "blue"}]
+          "flow": [
+            "① 先松锁紧螺母",
+            "② 再调中间调节螺栓",
+            "③ 调整完成后重新锁紧"
+          ],
+          "emphasis": [
+            {
+              "text": "先松锁紧 → 再调速度 → 最后锁紧"
+            },
+            {
+              "text": "顺时针调节螺栓 → 皮带速度调快",
+              "tone": "red"
+            },
+            {
+              "text": "逆时针调节螺栓 → 皮带速度调慢",
+              "tone": "blue"
+            }
+          ]
         },
         {
           "title": "注意",
-          "notes": ["调整前先确认操作的是标有“皮带”字样的阀组。", "调速时操作中间的小调节螺栓，不要误将外侧大锁紧螺母作为调速螺栓。", "调整完成后，必须重新拧紧外侧锁紧螺母，防止调节位置发生变化。", "调整过程中应逐步调整，避免一次调整幅度过大。"]
+          "notes": [
+            "调整前先确认操作的是标有“皮带”字样的阀组。",
+            "调速时操作中间的小调节螺栓，不要误将外侧大锁紧螺母作为调速螺栓。",
+            "调整完成后，必须重新拧紧外侧锁紧螺母，防止调节位置发生变化。",
+            "调整过程中应逐步调整，避免一次调整幅度过大。"
+          ]
         }
       ]
     },
@@ -60,42 +120,103 @@
       "title": "循环泵滤芯报警",
       "pageTitle": "401焊机｜循环泵滤芯报警",
       "summary": "循环泵滤芯切换",
-      "keywords": ["循环泵滤芯报警", "滤芯切换", "循环泵过滤器"],
+      "keywords": [
+        "循环泵滤芯报警",
+        "滤芯切换",
+        "循环泵过滤器"
+      ],
       "guide": [
         {
           "title": "异常现象",
-          "paragraphs": ["当401焊机出现“循环泵滤芯报警”时，可进行循环泵滤芯切换。"],
-          "emphasis": [{"text": "循环泵滤芯切换可不停泵操作"}]
+          "paragraphs": [
+            "当401焊机出现“循环泵滤芯报警”时，可进行循环泵滤芯切换。"
+          ],
+          "emphasis": [
+            {
+              "text": "循环泵滤芯切换可不停泵操作"
+            }
+          ]
         },
         {
-          "step": "1", "title": "找到循环泵过滤器",
-          "paragraphs": ["现场可看到两个并排的红色过滤器罐体。"],
-          "emphasis": [{"text": "出口传动侧 → 焊机油箱上方"}, {"text": "左侧：1#循环泵过滤器"}, {"text": "右侧：2#循环泵过滤器"}],
+          "step": "1",
+          "title": "找到循环泵过滤器",
+          "paragraphs": [
+            "现场可看到两个并排的红色过滤器罐体。"
+          ],
+          "emphasis": [
+            {
+              "text": "出口传动侧 → 焊机油箱上方"
+            },
+            {
+              "text": "左侧：1#循环泵过滤器"
+            },
+            {
+              "text": "右侧：2#循环泵过滤器"
+            }
+          ],
           "image": "./assets/images/circulation-pump-filter-location.png",
           "caption": "循环泵过滤器位于出口传动侧焊机油箱上方两个红色罐体中"
         },
         {
-          "step": "2", "title": "找到滤芯切换装置",
-          "paragraphs": ["在1#、2#循环泵过滤器之间，找到滤芯切换装置。", "切换位置位于两个红色过滤器之间的中间阀体上。"],
-          "emphasis": [{"text": "两个过滤器之间 → 中间滤芯切换装置"}],
+          "step": "2",
+          "title": "找到滤芯切换装置",
+          "paragraphs": [
+            "在1#、2#循环泵过滤器之间，找到滤芯切换装置。",
+            "切换位置位于两个红色过滤器之间的中间阀体上。"
+          ],
+          "emphasis": [
+            {
+              "text": "两个过滤器之间 → 中间滤芯切换装置"
+            }
+          ],
           "image": "./assets/images/circulation-pump-filter-switch.png",
           "caption": "两个循环泵过滤器中间为滤芯切换装置"
         },
         {
-          "step": "3", "title": "切换1# / 2#滤芯",
-          "paragraphs": ["使用扳手操作中间的滤芯切换装置，将当前使用的滤芯切换至另一侧滤芯。"],
-          "emphasis": [{"text": "1#滤芯 ⇄ 2#滤芯"}, {"text": "可不停泵操作"}],
+          "step": "3",
+          "title": "切换1# / 2#滤芯",
+          "paragraphs": [
+            "使用扳手操作中间的滤芯切换装置，将当前使用的滤芯切换至另一侧滤芯。"
+          ],
+          "emphasis": [
+            {
+              "text": "1#滤芯 ⇄ 2#滤芯"
+            },
+            {
+              "text": "可不停泵操作"
+            }
+          ],
           "image": "./assets/images/circulation-pump-filter-switch.png",
           "caption": "使用扳手旋转切换装置，切换1#、2#滤芯，可不停泵操作。"
         },
         {
-          "step": "4", "title": "确认报警状态",
-          "paragraphs": ["完成循环泵滤芯切换后，确认循环泵滤芯报警是否恢复正常。", "如报警恢复正常，本次滤芯切换完成。"],
-          "emphasis": [{"text": "确认循环泵滤芯报警是否恢复正常。"}, {"text": "如报警未恢复：停止继续反复切换，按现有异常处理流程进一步检查。", "tone": "red"}]
+          "step": "4",
+          "title": "确认报警状态",
+          "paragraphs": [
+            "完成循环泵滤芯切换后，确认循环泵滤芯报警是否恢复正常。",
+            "如报警恢复正常，本次滤芯切换完成。"
+          ],
+          "emphasis": [
+            {
+              "text": "确认循环泵滤芯报警是否恢复正常。"
+            },
+            {
+              "text": "如报警未恢复：停止继续反复切换，按现有异常处理流程进一步检查。",
+              "tone": "red"
+            }
+          ]
         },
         {
           "title": "快速操作",
-          "flow": ["循环泵滤芯报警", "找到循环泵过滤器：出口传动侧 → 焊机油箱上方 → 两个红色罐体", "确认1# / 2#过滤器", "找到中间切换装置", "使用扳手旋转切换装置", "1#滤芯 ⇄ 2#滤芯", "确认报警是否恢复"],
+          "flow": [
+            "循环泵滤芯报警",
+            "找到循环泵过滤器：出口传动侧 → 焊机油箱上方 → 两个红色罐体",
+            "确认1# / 2#过滤器",
+            "找到中间切换装置",
+            "使用扳手旋转切换装置",
+            "1#滤芯 ⇄ 2#滤芯",
+            "确认报警是否恢复"
+          ],
           "footer": "滤芯切换可不停泵操作"
         }
       ]
@@ -105,15 +226,82 @@
       "title": "激光源故障查询",
       "summary": "激光源报警、激光就绪异常、联锁未满足",
       "risk": "high",
-      "keywords": ["激光源", "故障查询", "Diagnostics", "报警"],
+      "keywords": [
+        "激光源",
+        "故障查询",
+        "Diagnostics",
+        "报警"
+      ],
       "guide": [
-        {"title": "异常信息", "paragraphs": ["异常类别：激光系统 / 电气联锁 / 冷却联锁", "报警提示：激光源报警、激光就绪异常、联锁未满足", "需要通知：班长、电气、点检、激光专业人员"], "emphasis": [{"text": "禁止继续生产", "tone": "red"}]},
-        {"step": "1", "title": "进入激光画面", "paragraphs": ["在总界面右侧点击“激光画面”按钮，进入激光源 LaserBOF 画面。"], "image": "./assets/images/laser-source-query-step-1-baohan.webp", "caption": "进入激光画面"},
-        {"step": "2", "title": "进入 Diagnostics 诊断页面", "paragraphs": ["在 LaserBOF 画面右侧点击“Diagnostics”按钮，进入诊断页面。"], "image": "./assets/images/laser-source-query-step-2.jpg", "caption": "进入 Diagnostics 诊断页面"},
-        {"step": "3", "title": "查看当前报警 Pending messages", "paragraphs": ["在诊断页面顶部点击“Pending messages”，查看当前未处理报警。"], "image": "./assets/images/laser-source-query-step-3.jpg", "caption": "查看当前报警 Pending messages"},
-        {"step": "4", "title": "拍摄即时报警信息", "paragraphs": ["拍摄即时报警信息，并发送给点检人员确认。"], "image": "./assets/images/laser-source-query-step-4.jpg", "caption": "拍摄即时报警信息"},
-        {"step": "5", "title": "查询历史报警 History of messages", "paragraphs": ["需要追溯时点击“History of messages”，查询历史报警信息。"], "image": "./assets/images/laser-source-query-step-5.jpg", "caption": "查询历史报警 History of messages"},
-        {"step": "6", "title": "拍照后进行故障复位", "paragraphs": ["确认即时报警信息已拍照留存后，点击左侧 Error Reset / 故障复位按钮进行复位。"], "image": "./assets/images/laser-source-query-step-6.jpg", "caption": "拍照后进行故障复位"}
+        {
+          "title": "异常信息",
+          "paragraphs": [
+            "异常类别：激光系统 / 电气联锁 / 冷却联锁",
+            "报警提示：激光源报警、激光就绪异常、联锁未满足",
+            "需要通知：班长、电气、点检、激光专业人员"
+          ],
+          "emphasis": [
+            {
+              "text": "禁止继续生产",
+              "tone": "red"
+            }
+          ]
+        },
+        {
+          "step": "1",
+          "title": "进入激光画面",
+          "paragraphs": [
+            "激光源画面只在现场操作面板上，如遇异常请移步现场操作台。",
+            "在总界面右侧点击“激光画面”按钮，进入激光源 LaserBOF 画面。"
+          ],
+          "image": "./assets/images/laser-source-query-step-1-baohan.webp",
+          "caption": "进入激光画面"
+        },
+        {
+          "step": "2",
+          "title": "进入 Diagnostics 诊断页面",
+          "paragraphs": [
+            "在 LaserBOF 画面右侧点击“Diagnostics”按钮，进入诊断页面。"
+          ],
+          "image": "./assets/images/laser-source-query-step-2.jpg",
+          "caption": "进入 Diagnostics 诊断页面"
+        },
+        {
+          "step": "3",
+          "title": "查看当前报警 Pending messages",
+          "paragraphs": [
+            "在诊断页面顶部点击“Pending messages”，查看当前未处理报警。"
+          ],
+          "image": "./assets/images/laser-source-query-step-3.jpg",
+          "caption": "查看当前报警 Pending messages"
+        },
+        {
+          "step": "4",
+          "title": "拍摄即时报警信息",
+          "paragraphs": [
+            "拍摄即时报警信息，并发送给点检人员确认。"
+          ],
+          "image": "./assets/images/laser-source-query-step-4.jpg",
+          "caption": "拍摄即时报警信息"
+        },
+        {
+          "step": "5",
+          "title": "查询历史报警 History of messages",
+          "paragraphs": [
+            "需要追溯时点击“History of messages”，查询历史报警信息。"
+          ],
+          "image": "./assets/images/laser-source-query-step-5.jpg",
+          "caption": "查询历史报警 History of messages"
+        },
+        {
+          "step": "6",
+          "title": "拍照后进行故障复位",
+          "paragraphs": [
+            "确认即时报警信息已拍照留存后，点击左侧 Error Reset / 故障复位按钮进行复位。"
+          ],
+          "image": "./assets/images/laser-source-query-step-6.jpg",
+          "caption": "拍照后进行故障复位"
+        }
       ]
     },
     {
@@ -121,15 +309,82 @@
       "title": "夹紧台堵塞故障",
       "summary": "夹紧台堵塞 / 夹紧台位置异常",
       "risk": "high",
-      "keywords": ["夹紧台", "堵塞", "夹钳台", "位置异常"],
+      "keywords": [
+        "夹紧台",
+        "堵塞",
+        "夹钳台",
+        "位置异常"
+      ],
       "guide": [
-        {"title": "异常信息", "paragraphs": ["异常类别：夹紧台控制 / 出入口夹钳台", "报警提示：夹紧台堵塞 / 夹紧台位置异常", "需要通知：班长、点检", "按以下画面步骤处理；调整后仍无法消除故障时，停止处理并通知点检。"], "emphasis": [{"text": "禁止继续生产", "tone": "red"}]},
-        {"step": "1", "title": "进入夹钳台控制器", "paragraphs": ["按照报警画面，选择“入口夹钳台控制器”或“出口夹钳台控制器”。"], "image": "./assets/images/clamp-platform-step-1-baohan.webp", "caption": "进入夹钳台控制器"},
-        {"step": "2", "title": "进入调整模式", "paragraphs": ["进入画面后，点击左下角“调整模式”按钮，按钮变为绿色后进入调整模式。"], "image": "./assets/images/clamp-platform-step-2-baohan.webp", "caption": "进入调整模式"},
-        {"step": "3", "title": "比对两侧实际数值", "paragraphs": ["观察入口、出口两侧实际编码器数值，确认两侧数值差异。"], "image": "./assets/images/clamp-platform-step-3-baohan.webp", "caption": "比对两侧实际数值"},
-        {"step": "4", "title": "锁定需要保持的一侧", "paragraphs": ["根据数值，点击单侧“锁定轴 LOCK”进行锁轴；仅对未锁轴侧进行后续调整。"], "image": "./assets/images/clamp-platform-step-4-baohan.webp", "caption": "锁定需要保持的一侧"},
-        {"step": "5", "title": "微调未锁轴侧位置", "paragraphs": ["对未锁轴处夹紧台进行微调，直至两侧实际值接近，差值约 1 mm。"], "image": "./assets/images/clamp-platform-step-5-baohan.webp", "caption": "微调未锁轴侧位置"},
-        {"step": "6", "title": "取消锁定并恢复动作", "paragraphs": ["数值调整完成后，取消锁定轴、取消调整模式；回到出入口画面，点击夹紧台位置前后移动，确认故障消除。"], "image": "./assets/images/clamp-platform-step-6-baohan.webp", "caption": "取消锁定并恢复动作"}
+        {
+          "title": "异常信息",
+          "paragraphs": [
+            "异常类别：夹紧台控制 / 出入口夹钳台",
+            "报警提示：夹紧台堵塞 / 夹紧台位置异常",
+            "需要通知：班长、点检",
+            "按以下画面步骤处理；调整后仍无法消除故障时，停止处理并通知点检。"
+          ],
+          "emphasis": [
+            {
+              "text": "禁止继续生产",
+              "tone": "red"
+            }
+          ]
+        },
+        {
+          "step": "1",
+          "title": "进入夹钳台控制器",
+          "paragraphs": [
+            "按照报警画面，选择“入口夹钳台控制器”或“出口夹钳台控制器”。"
+          ],
+          "image": "./assets/images/clamp-platform-step-1-baohan.webp",
+          "caption": "进入夹钳台控制器"
+        },
+        {
+          "step": "2",
+          "title": "进入调整模式",
+          "paragraphs": [
+            "进入画面后，点击左下角“调整模式”按钮，按钮变为绿色后进入调整模式。"
+          ],
+          "image": "./assets/images/clamp-platform-step-2-baohan.webp",
+          "caption": "进入调整模式"
+        },
+        {
+          "step": "3",
+          "title": "比对两侧实际数值",
+          "paragraphs": [
+            "观察入口、出口两侧实际编码器数值，确认两侧数值差异。"
+          ],
+          "image": "./assets/images/clamp-platform-step-3-baohan.webp",
+          "caption": "比对两侧实际数值"
+        },
+        {
+          "step": "4",
+          "title": "锁定需要保持的一侧",
+          "paragraphs": [
+            "根据数值，点击单侧“锁定轴 LOCK”进行锁轴；仅对未锁轴侧进行后续调整。"
+          ],
+          "image": "./assets/images/clamp-platform-step-4-baohan.webp",
+          "caption": "锁定需要保持的一侧"
+        },
+        {
+          "step": "5",
+          "title": "微调未锁轴侧位置",
+          "paragraphs": [
+            "对未锁轴处夹紧台进行微调，直至两侧实际值接近，差值约 1 mm。"
+          ],
+          "image": "./assets/images/clamp-platform-step-5-baohan.webp",
+          "caption": "微调未锁轴侧位置"
+        },
+        {
+          "step": "6",
+          "title": "取消锁定并恢复动作",
+          "paragraphs": [
+            "数值调整完成后，取消锁定轴、取消调整模式；回到出入口画面，点击夹紧台位置前后移动，确认故障消除。"
+          ],
+          "image": "./assets/images/clamp-platform-step-6-baohan.webp",
+          "caption": "取消锁定并恢复动作"
+        }
       ]
     },
     {
@@ -137,44 +392,118 @@
       "title": "401焊机冷却水切换",
       "pageTitle": "401焊机｜冷却水切换手顺",
       "summary": "1#机运行、2#机备机运行 → 2#机运行、1#机备机运行",
-      "keywords": ["冷却水切换", "冷却器", "冷水机", "12个阀门", "运行冷水机选择开关", "备用冷水机选择开关"],
+      "keywords": [
+        "冷却水切换",
+        "冷却器",
+        "冷水机",
+        "12个阀门",
+        "运行冷水机选择开关",
+        "备用冷水机选择开关"
+      ],
       "guide": [
         {
           "title": "切换前 → 切换后",
-          "emphasis": [{"text": "当前：1#机运行，2#机备机运行"}, {"text": "切换后：2#机运行，1#机备机运行", "tone": "red"}],
-          "paragraphs": ["冷水机因故障已停机时，只可跳过将三个选择开关切至中间停止位的操作。后续阀门切换及运行／备用开关切换仍需执行。"]
+          "emphasis": [
+            {
+              "text": "当前：1#机运行，2#机备机运行"
+            },
+            {
+              "text": "切换后：2#机运行，1#机备机运行",
+              "tone": "red"
+            }
+          ],
+          "paragraphs": [
+            "冷水机因故障已停机时，只可跳过将三个选择开关切至中间停止位的操作。后续阀门切换及运行／备用开关切换仍需执行。"
+          ]
         },
         {
-          "step": "01", "title": "确认冷却器与切换阀站位置",
-          "emphasis": [{"text": "2#冷却器位于焊机出口传动侧"}, {"text": "切换阀站在焊机入口传动侧"}],
+          "step": "01",
+          "title": "确认冷却器与切换阀站位置",
+          "emphasis": [
+            {
+              "text": "2#冷却器位于焊机出口传动侧"
+            },
+            {
+              "text": "切换阀站在焊机入口传动侧"
+            }
+          ],
           "image": "./assets/images/cooling-water-location.png",
           "caption": "401现场：2#冷却器在焊机出口传动侧",
-          "images": [{"image": "./assets/images/cooling-water-valve-location.png", "caption": "401现场：切换阀站在焊机入口传动侧"}]
+          "images": [
+            {
+              "image": "./assets/images/cooling-water-valve-location.png",
+              "caption": "401现场：切换阀站在焊机入口传动侧"
+            }
+          ]
         },
         {
-          "step": "02", "title": "确认当前状态并切至停止位",
-          "paragraphs": ["确认现场有三个选择开关：左侧两个为运行冷水机选择开关，右侧为备用冷水机选择开关。"],
-          "emphasis": [{"text": "冷水机所有切换开关均位于2#机面板上。"}, {"text": "将三个选择开关均切至中间“停止”位。", "tone": "red"}, {"text": "如冷水机因故障已停机，可跳过本步切至中间停止位的操作。", "tone": "red"}],
+          "step": "02",
+          "title": "确认当前状态并切至停止位",
+          "paragraphs": [
+            "确认现场有三个选择开关：左侧两个为运行冷水机选择开关，右侧为备用冷水机选择开关。"
+          ],
+          "emphasis": [
+            {
+              "text": "冷水机所有切换开关均位于2#机面板上。"
+            },
+            {
+              "text": "将三个选择开关均切至中间“停止”位。",
+              "tone": "red"
+            },
+            {
+              "text": "如冷水机因故障已停机，可跳过本步切至中间停止位的操作。",
+              "tone": "red"
+            }
+          ],
           "image": "./assets/images/cooling-water-stop-selectors.png",
           "caption": "401三个选择开关：中间“停止”位置"
         },
         {
-          "step": "03", "title": "切换12个冷却水阀门",
-          "paragraphs": ["当前为1#机使用状态，阀门垂直。切换至2#机时，依次完成全部橘红色阀门切换。"],
-          "emphasis": [{"text": "12个阀门全部逆时针旋转90°：垂直 → 水平。", "tone": "red"}, {"text": "逐一确认12个阀门全部到位，不得遗漏。", "tone": "red"}],
+          "step": "03",
+          "title": "切换12个冷却水阀门",
+          "paragraphs": [
+            "当前为1#机使用状态，阀门垂直。切换至2#机时，依次完成全部橘红色阀门切换。"
+          ],
+          "emphasis": [
+            {
+              "text": "12个阀门全部逆时针旋转90°：垂直 → 水平。",
+              "tone": "red"
+            },
+            {
+              "text": "逐一确认12个阀门全部到位，不得遗漏。",
+              "tone": "red"
+            }
+          ],
           "image": "./assets/images/cooling-water-valves.png",
           "caption": "401阀组：共12个橘红色阀门，逆时针90°，垂直切为水平"
         },
         {
-          "step": "04", "title": "设置运行与备用冷水机开关",
-          "emphasis": [{"text": "左侧两个运行冷水机选择开关：1#机运行 → 2#机运行", "tone": "red"}, {"text": "右侧备用冷水机选择开关：2#机备机运行 → 1#机备机运行", "tone": "red"}],
-          "paragraphs": ["本步仍需执行。图中“故障停机可跳过此步骤”仅指STEP 02切至中间停止位，不代表可跳过运行／备用开关切换。"],
+          "step": "04",
+          "title": "设置运行与备用冷水机开关",
+          "emphasis": [
+            {
+              "text": "左侧两个运行冷水机选择开关：1#机运行 → 2#机运行",
+              "tone": "red"
+            },
+            {
+              "text": "右侧备用冷水机选择开关：2#机备机运行 → 1#机备机运行",
+              "tone": "red"
+            }
+          ],
+          "paragraphs": [
+            "本步仍需执行。图中“故障停机可跳过此步骤”仅指STEP 02切至中间停止位，不代表可跳过运行／备用开关切换。"
+          ],
           "image": "./assets/images/cooling-water-selectors.png",
           "caption": "401三个选择开关：左侧两个切至2#机运行，右侧切至1#机备机运行"
         },
         {
-          "step": "05", "title": "确认切换完成",
-          "notes": ["两个运行冷水机选择开关均已切至2#机运行。", "备用冷水机选择开关已切至1#机备机运行。", "12个冷却水阀门均处于水平位置，全部完成切换。"],
+          "step": "05",
+          "title": "确认切换完成",
+          "notes": [
+            "两个运行冷水机选择开关均已切至2#机运行。",
+            "备用冷水机选择开关已切至1#机备机运行。",
+            "12个冷却水阀门均处于水平位置，全部完成切换。"
+          ],
           "footer": "最终状态：2#机运行，1#机备机运行。"
         }
       ]
@@ -185,74 +514,290 @@
       "id": "gas-nozzle-cleaning",
       "title": "保护气体喷嘴清理",
       "summary": "防止气孔、穿透底下、飞溅增多",
-      "keywords": ["保护气体", "喷嘴", "清理"],
+      "keywords": [
+        "保护气体",
+        "喷嘴",
+        "清理"
+      ],
       "guide": [
-        {"title": "维护目的", "paragraphs": ["防止喷嘴堵塞、偏吹，避免保护气不足导致焊缝出现气孔、穿透底下，飞溅增多等缺陷。"]},
-        {"title": "操作方法", "notes": ["确认焊机停止，焊接区域处于安全状态，插上小车及导向轮安全销。", "检查保护气喷嘴口是否有飞溅物、堵塞。", "使用专用工具清理喷嘴外部和喷嘴口。", "清理后确认喷嘴无异物。"]},
-        {"title": "注意事项", "emphasis": [{"text": "禁止用硬物强行敲击喷嘴，防止喷嘴变形。", "tone": "red"}]},
-        {"title": "维护周期", "paragraphs": ["每班检查，以及批量填丝后检查，发现污染及时清理。"]},
-        {"title": "喷嘴对照：损坏", "image": "./assets/images/gas-nozzle-damaged.webp", "caption": "损坏的喷嘴（参照101同项目图片）"},
-        {"title": "喷嘴对照：正常", "image": "./assets/images/gas-nozzle-normal.webp", "caption": "正常喷嘴（参照101同项目图片）"}
+        {
+          "title": "维护目的",
+          "paragraphs": [
+            "防止喷嘴堵塞、偏吹，避免保护气不足导致焊缝出现气孔、穿透底下，飞溅增多等缺陷。"
+          ]
+        },
+        {
+          "title": "操作方法",
+          "notes": [
+            "确认焊机停止，焊接区域处于安全状态，插上小车及导向轮安全销。",
+            "检查保护气喷嘴口是否有飞溅物、堵塞。",
+            "使用专用工具清理喷嘴外部和喷嘴口。",
+            "清理后确认喷嘴无异物。"
+          ]
+        },
+        {
+          "title": "注意事项",
+          "emphasis": [
+            {
+              "text": "禁止用硬物强行敲击喷嘴，防止喷嘴变形。",
+              "tone": "red"
+            }
+          ]
+        },
+        {
+          "title": "维护周期",
+          "paragraphs": [
+            "每班检查，以及批量填丝后检查，发现污染及时清理。"
+          ]
+        },
+        {
+          "title": "喷嘴对照：损坏",
+          "image": "./assets/images/gas-nozzle-damaged.webp",
+          "caption": "损坏的喷嘴（参照101同项目图片）"
+        },
+        {
+          "title": "喷嘴对照：正常",
+          "image": "./assets/images/gas-nozzle-normal.webp",
+          "caption": "正常喷嘴（参照101同项目图片）"
+        }
       ]
     },
     {
       "id": "scissors-cleaning",
       "title": "剪刀清理",
       "summary": "保证剪切端面清洁",
-      "keywords": ["剪刀", "擦灰", "清理", "剪切端面"],
+      "keywords": [
+        "剪刀",
+        "擦灰",
+        "清理",
+        "剪切端面"
+      ],
       "guide": [
-        {"title": "维护目的", "paragraphs": ["防止剪切区域灰尘、铁屑堆积，影响剪切端面质量，避免端面毛刺、间隙异常影响焊接。"]},
-        {"title": "操作方法", "notes": ["确认剪刀处于停止和安全状态。", "清理剪刀附近灰尘、铁屑和油污。", "擦拭剪刀周边可接触区域，保持端面区域清洁。", "检查剪切区域是否有残留废边或异物。"]},
-        {"title": "注意事项", "paragraphs": ["不插剪刀安全销情况下，可使用入口传动侧压缩空软管吹扫。"], "emphasis": [{"text": "禁止未插上剪刀安全销时把手伸入剪刃危险区域。", "tone": "red"}]},
-        {"title": "维护周期", "paragraphs": ["每班检查，剪切异常或端面灰尘多时及时清理。"]}
+        {
+          "title": "维护目的",
+          "paragraphs": [
+            "防止剪切区域灰尘、铁屑堆积，影响剪切端面质量，避免端面毛刺、间隙异常影响焊接。"
+          ]
+        },
+        {
+          "title": "操作方法",
+          "notes": [
+            "确认剪刀处于停止和安全状态。",
+            "清理剪刀附近灰尘、铁屑和油污。",
+            "擦拭剪刀周边可接触区域，保持端面区域清洁。",
+            "检查剪切区域是否有残留废边或异物。"
+          ]
+        },
+        {
+          "title": "注意事项",
+          "paragraphs": [
+            "不插剪刀安全销情况下，可使用入口传动侧压缩空软管吹扫。"
+          ],
+          "emphasis": [
+            {
+              "text": "禁止未插上剪刀安全销时把手伸入剪刃危险区域。",
+              "tone": "red"
+            }
+          ]
+        },
+        {
+          "title": "维护周期",
+          "paragraphs": [
+            "每班检查，剪切异常或端面灰尘多时及时清理。"
+          ]
+        }
       ]
     },
     {
       "id": "secondary-scrap-cleaning",
       "title": "二次剪切废边清理",
       "summary": "防止废边堆积、卡阻",
-      "keywords": ["二次剪切", "废边", "清理"],
+      "keywords": [
+        "二次剪切",
+        "废边",
+        "清理"
+      ],
       "guide": [
-        {"title": "维护目的", "paragraphs": ["防止废边堆积影响二次剪切动作，避免废边卡阻、带钢端面异常或设备报警。"]},
-        {"title": "操作方法", "notes": ["确认二次剪切区域停止动作。", "检查废边收集区域是否堆积。", "使用指定工具清理废边，不得徒手拉拽卡住的废边。", "清理后确认废边通道畅通。"]},
-        {"title": "注意事项", "emphasis": [{"text": "禁止在剪切动作未停止时清理废边。", "tone": "red"}, {"text": "废边锋利，必须佩戴手套。", "tone": "red"}]},
-        {"title": "维护周期", "paragraphs": ["每班检查，废边堆积时立即清理。"]}
+        {
+          "title": "维护目的",
+          "paragraphs": [
+            "防止废边堆积影响二次剪切动作，避免废边卡阻、带钢端面异常或设备报警。"
+          ]
+        },
+        {
+          "title": "操作方法",
+          "notes": [
+            "确认二次剪切区域停止动作。",
+            "检查废边收集区域是否堆积。",
+            "使用指定工具清理废边，不得徒手拉拽卡住的废边。",
+            "清理后确认废边通道畅通。"
+          ]
+        },
+        {
+          "title": "注意事项",
+          "emphasis": [
+            {
+              "text": "禁止在剪切动作未停止时清理废边。",
+              "tone": "red"
+            },
+            {
+              "text": "废边锋利，必须佩戴手套。",
+              "tone": "red"
+            }
+          ]
+        },
+        {
+          "title": "维护周期",
+          "paragraphs": [
+            "每班检查，废边堆积时立即清理。"
+          ]
+        }
       ]
     },
     {
       "id": "clamp-air-cleaning",
       "title": "夹钳吹灰",
       "summary": "防止夹紧不牢",
-      "keywords": ["夹钳", "吹灰", "压缩空气"],
+      "keywords": [
+        "夹钳",
+        "吹灰",
+        "压缩空气"
+      ],
       "guide": [
-        {"title": "维护目的", "paragraphs": ["防止夹钳表面积灰、铁屑、氧化皮导致夹紧不牢、错边、焊缝不稳定。"]},
-        {"title": "操作方法", "notes": ["确认夹钳处于安全打开或停止状态。", "使用压缩空气吹扫夹钳表面、夹紧面和周边缝隙。", "检查夹钳表面是否有压痕、异物、粘附铁屑。", "吹扫后确认夹钳夹紧面干净。"]},
-        {"title": "注意事项", "emphasis": [{"text": "吹灰时佩戴护目镜。", "tone": "red"}, {"text": "禁止在夹钳动作时伸手清理。", "tone": "red"}, {"text": "压缩空气不得对人吹。", "tone": "red"}]},
-        {"title": "维护周期", "paragraphs": ["每班检查，焊接前重点确认。"]}
+        {
+          "title": "维护目的",
+          "paragraphs": [
+            "防止夹钳表面积灰、铁屑、氧化皮导致夹紧不牢、错边、焊缝不稳定。"
+          ]
+        },
+        {
+          "title": "操作方法",
+          "notes": [
+            "确认夹钳处于安全打开或停止状态。",
+            "使用压缩空气吹扫夹钳表面、夹紧面和周边缝隙。",
+            "检查夹钳表面是否有压痕、异物、粘附铁屑。",
+            "吹扫后确认夹钳夹紧面干净。"
+          ]
+        },
+        {
+          "title": "注意事项",
+          "emphasis": [
+            {
+              "text": "吹灰时佩戴护目镜。",
+              "tone": "red"
+            },
+            {
+              "text": "禁止在夹钳动作时伸手清理。",
+              "tone": "red"
+            },
+            {
+              "text": "压缩空气不得对人吹。",
+              "tone": "red"
+            }
+          ]
+        },
+        {
+          "title": "维护周期",
+          "paragraphs": [
+            "每班检查，焊接前重点确认。"
+          ]
+        }
       ]
     },
     {
       "id": "car-rail-cleaning",
       "title": "焊接小车轨道清擦",
       "summary": "保证小车运行平稳",
-      "keywords": ["焊接小车", "轨道", "清擦"],
+      "keywords": [
+        "焊接小车",
+        "轨道",
+        "清擦"
+      ],
       "guide": [
-        {"title": "维护目的", "paragraphs": ["防止轨道积灰、铁屑、油污导致焊接小车运行不平稳，影响激光与焊缝位置稳定。"]},
-        {"title": "操作方法", "notes": ["确认焊接小车停止运行。", "检查轨道表面是否有灰尘、铁屑、油污。", "使用干净抹布擦拭轨道表面。", "清理小车运行范围内的异物。", "清理后确认小车轨道无明显卡阻和污染。"]},
-        {"title": "注意事项", "emphasis": [{"text": "禁止在小车运行过程中清理轨道。", "tone": "red"}, {"text": "不得将工具遗留在小车运行区域。", "tone": "red"}, {"text": "发现小车运行异响、卡滞，应通知点检。", "tone": "red"}]},
-        {"title": "维护周期", "paragraphs": ["每班检查，每日清擦。"]}
+        {
+          "title": "维护目的",
+          "paragraphs": [
+            "防止轨道积灰、铁屑、油污导致焊接小车运行不平稳，影响激光与焊缝位置稳定。"
+          ]
+        },
+        {
+          "title": "操作方法",
+          "notes": [
+            "确认焊接小车停止运行。",
+            "检查轨道表面是否有灰尘、铁屑、油污。",
+            "使用干净抹布擦拭轨道表面。",
+            "清理小车运行范围内的异物。",
+            "清理后确认小车轨道无明显卡阻和污染。"
+          ]
+        },
+        {
+          "title": "注意事项",
+          "emphasis": [
+            {
+              "text": "禁止在小车运行过程中清理轨道。",
+              "tone": "red"
+            },
+            {
+              "text": "不得将工具遗留在小车运行区域。",
+              "tone": "red"
+            },
+            {
+              "text": "发现小车运行异响、卡滞，应通知点检。",
+              "tone": "red"
+            }
+          ]
+        },
+        {
+          "title": "维护周期",
+          "paragraphs": [
+            "每班检查，每日清擦。"
+          ]
+        }
       ]
     },
     {
       "id": "guide-wheel-cleaning",
       "title": "导向轮清渣",
       "summary": "防止下保护气喷嘴装置损坏",
-      "keywords": ["导向轮", "清渣", "结渣"],
+      "keywords": [
+        "导向轮",
+        "清渣",
+        "结渣"
+      ],
       "guide": [
-        {"title": "维护目的", "paragraphs": ["防止导向轮结渣造成下保护气喷嘴装置损坏，或穿透率异常报警。"]},
-        {"title": "操作方法", "notes": ["确认设备停止。", "插上小车安全销，导向轮安全销。", "使用工具清理导向轮侧面结渣。"]},
-        {"title": "注意事项", "emphasis": [{"text": "戴好手套清理导向轮，防止烫伤。", "tone": "red"}, {"text": "清理时注意防止铁屑飞入眼睛。", "tone": "red"}]},
-        {"title": "维护周期", "paragraphs": ["发现积渣严重及时清理，一般点检会提前清理。"]}
+        {
+          "title": "维护目的",
+          "paragraphs": [
+            "防止导向轮结渣造成下保护气喷嘴装置损坏，或穿透率异常报警。"
+          ]
+        },
+        {
+          "title": "操作方法",
+          "notes": [
+            "确认设备停止。",
+            "插上小车安全销，导向轮安全销。",
+            "使用工具清理导向轮侧面结渣。"
+          ]
+        },
+        {
+          "title": "注意事项",
+          "emphasis": [
+            {
+              "text": "戴好手套清理导向轮，防止烫伤。",
+              "tone": "red"
+            },
+            {
+              "text": "清理时注意防止铁屑飞入眼睛。",
+              "tone": "red"
+            }
+          ]
+        },
+        {
+          "title": "维护周期",
+          "paragraphs": [
+            "发现积渣严重及时清理，一般点检会提前清理。"
+          ]
+        }
       ]
     },
     {
@@ -260,29 +805,55 @@
       "title": "利用段焊进行焦点位置检查",
       "approvalStatus": "pending-site-confirmation",
       "summary": "适用人员：经过授权和培训的操作人员。本手顺为本地待审核草稿，焦点检查的具体操作尚待现场确认。",
-      "keywords": ["段焊", "焦点位置", "激光点射模式"],
+      "keywords": [
+        "段焊",
+        "焦点位置",
+        "激光点射模式"
+      ],
       "guide": [
         {
           "step": "01",
           "title": "进入设备调整画面",
-          "paragraphs": ["在焊机“概览”画面中，找到维修用户区域，点击“设备调整”按钮。"],
+          "paragraphs": [
+            "在焊机“概览”画面中，找到维修用户区域，点击“设备调整”按钮。"
+          ],
           "image": "./assets/images/focus-check-overview.png",
           "caption": "在概览画面中选择设备调整按钮（原始现场标注图）"
         },
         {
           "step": "02",
           "title": "进入段焊模式",
-          "paragraphs": ["在“设备调整”画面的“选择激光”区域，找到“激光点射模式”。点击对应开关，使其由红色“关”变为绿色“开”，焊机进入段焊模式。"],
-          "emphasis": [{"text": "红色“关” → 绿色“开”：进入段焊模式", "tone": "green"}, {"text": "模式切换不等于允许激光发射。实际段焊必须满足设备联锁、安全条件和经批准的现场操作规程。", "tone": "red"}],
+          "paragraphs": [
+            "在“设备调整”画面的“选择激光”区域，找到“激光点射模式”。点击对应开关，使其由红色“关”变为绿色“开”，焊机进入段焊模式。"
+          ],
+          "emphasis": [
+            {
+              "text": "红色“关” → 绿色“开”：进入段焊模式",
+              "tone": "green"
+            },
+            {
+              "text": "模式切换不等于允许激光发射。实际段焊必须满足设备联锁、安全条件和经批准的现场操作规程。",
+              "tone": "red"
+            }
+          ],
           "image": "./assets/images/focus-check-adjustment.png",
           "caption": "设备调整画面：激光点射模式开启与关闭（原始现场标注图）"
         },
         {
           "step": "03",
           "title": "退出段焊模式",
-          "paragraphs": ["段焊结束后，在“设备调整”画面中再次点击“激光点射模式”，使对应开关由绿色“开”恢复为红色“关”，退出段焊模式，恢复正常焊接模式。"],
-          "emphasis": [{"text": "绿色“开” → 红色“关”：退出段焊模式。确认HMI显示为红色“关”。", "tone": "red"}],
-          "notes": ["退出段焊模式不代表设备已自动满足正常生产的全部启动条件，仍需按现场规程确认。"],
+          "paragraphs": [
+            "段焊结束后，在“设备调整”画面中再次点击“激光点射模式”，使对应开关由绿色“开”恢复为红色“关”，退出段焊模式，恢复正常焊接模式。"
+          ],
+          "emphasis": [
+            {
+              "text": "绿色“开” → 红色“关”：退出段焊模式。确认HMI显示为红色“关”。",
+              "tone": "red"
+            }
+          ],
+          "notes": [
+            "退出段焊模式不代表设备已自动满足正常生产的全部启动条件，仍需按现场规程确认。"
+          ],
           "image": "./assets/images/focus-check-adjustment.png",
           "caption": "设备调整画面：段焊结束后将激光点射模式恢复为红色“关”"
         }
@@ -293,29 +864,60 @@
       "title": "修改焦点位置",
       "approvalStatus": "pending-site-confirmation",
       "summary": "适用设备：401激光焊机。焊接焦点位置发生偏移，需要根据检查结果对操作侧或传动侧焦点位置进行修正时使用。本操作涉及设备补偿参数，应由经过授权的人员执行。",
-      "keywords": ["焦点位置", "横向补偿", "剪刀调整", "夹钳台补偿"],
+      "keywords": [
+        "焦点位置",
+        "横向补偿",
+        "剪刀调整",
+        "夹钳台补偿"
+      ],
       "guide": [
         {
           "step": "01",
           "title": "进入剪刀调整画面",
-          "paragraphs": ["在焊机“概览”画面中，找到“维修用户”区域，点击“剪刀调整”按钮。"],
+          "paragraphs": [
+            "在焊机“概览”画面中，找到“维修用户”区域，点击“剪刀调整”按钮。"
+          ],
           "image": "./assets/images/focus-adjustment-entry.png",
           "caption": "在概览画面中选择“剪刀调整”按钮"
         },
         {
           "step": "02",
           "title": "确认焦点偏移方向",
-          "paragraphs": ["根据焦点检查结果，分别确认操作侧和传动侧的焦点位置。以下方向依据现场图片标注整理，正式使用前需核对401设备的实际补偿逻辑。"],
-          "emphasis": [{"text": "焦点偏向出口 → 增大对应侧横向补偿数值（待现场核对）", "tone": "red"}, {"text": "焦点偏向入口 → 减小对应侧横向补偿数值（待现场核对）", "tone": "blue"}],
-          "notes": ["操作侧与传动侧应分别判断，不得未经确认直接同时修改两侧参数。", "原HMI截图示例：操作侧+0.40 mm、传动侧+0.50 mm，仅为截图示例，不代表标准值或目标值。"],
+          "paragraphs": [
+            "根据焦点检查结果，分别确认操作侧和传动侧的焦点位置。以下方向依据现场图片标注整理，正式使用前需核对401设备的实际补偿逻辑。"
+          ],
+          "emphasis": [
+            {
+              "text": "焦点偏向出口 → 增大对应侧横向补偿数值（待现场核对）",
+              "tone": "red"
+            },
+            {
+              "text": "焦点偏向入口 → 减小对应侧横向补偿数值（待现场核对）",
+              "tone": "blue"
+            }
+          ],
+          "notes": [
+            "操作侧与传动侧应分别判断，不得未经确认直接同时修改两侧参数。",
+            "原HMI截图示例：操作侧+0.40 mm、传动侧+0.50 mm，仅为截图示例，不代表标准值或目标值。"
+          ],
           "image": "./assets/images/focus-adjustment-parameters.png",
           "caption": "横向补偿值：操作侧、传动侧及现场标注的调整方向"
         },
         {
           "step": "03",
           "title": "接受补偿值",
-          "emphasis": [{"text": "原图标注：修改参数后，需点击“接受补偿值”，修改才能生效。", "tone": "blue"}],
-          "images": [{"image": "./assets/images/focus-adjustment-accept.png", "caption": "原始现场标注：“接受补偿值”确认按钮"}]
+          "emphasis": [
+            {
+              "text": "原图标注：修改参数后，需点击“接受补偿值”，修改才能生效。",
+              "tone": "blue"
+            }
+          ],
+          "images": [
+            {
+              "image": "./assets/images/focus-adjustment-accept.png",
+              "caption": "原始现场标注：“接受补偿值”确认按钮"
+            }
+          ]
         }
       ]
     }
