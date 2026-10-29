@@ -1,4 +1,4 @@
-const CACHE_NAME = "welding-guide-401-v24";
+const CACHE_NAME = "welding-guide-401-v25";
 const CACHE_PREFIX = "welding-guide-401-";
 const APP_ROOT = new URL("./", self.location.href);
 const MEDIA_SOURCES = [
@@ -14,18 +14,18 @@ const MEDIA_SOURCES = [
   "./assets/images/cooling-water-location.png",
   "./assets/images/cooling-water-selectors.png",
   "./assets/images/cooling-water-valves.png",
-  "./assets/images/laser-source-query-step-1.jpg",
+  "./assets/images/laser-source-query-step-1-baohan.webp",
   "./assets/images/laser-source-query-step-2.jpg",
   "./assets/images/laser-source-query-step-3.jpg",
   "./assets/images/laser-source-query-step-4.jpg",
   "./assets/images/laser-source-query-step-5.jpg",
   "./assets/images/laser-source-query-step-6.jpg",
-  "./assets/images/clamp-platform-step-1.webp",
-  "./assets/images/clamp-platform-step-2.webp",
-  "./assets/images/clamp-platform-step-3.webp",
-  "./assets/images/clamp-platform-step-4.webp",
-  "./assets/images/clamp-platform-step-5.webp",
-  "./assets/images/clamp-platform-step-6.webp",
+  "./assets/images/clamp-platform-step-1-baohan.webp",
+  "./assets/images/clamp-platform-step-2-baohan.webp",
+  "./assets/images/clamp-platform-step-3-baohan.webp",
+  "./assets/images/clamp-platform-step-4-baohan.webp",
+  "./assets/images/clamp-platform-step-5-baohan.webp",
+  "./assets/images/clamp-platform-step-6-baohan.webp",
   "./assets/images/circulation-pump-filter-location.png",
   "./assets/images/circulation-pump-filter-switch.png",
   "./assets/images/scrap-belt-location.png",

@@ -108,7 +108,7 @@
       "keywords": ["激光源", "故障查询", "Diagnostics", "报警"],
       "guide": [
         {"title": "异常信息", "paragraphs": ["异常类别：激光系统 / 电气联锁 / 冷却联锁", "报警提示：激光源报警、激光就绪异常、联锁未满足", "需要通知：班长、电气、点检、激光专业人员"], "emphasis": [{"text": "禁止继续生产", "tone": "red"}]},
-        {"step": "1", "title": "进入激光画面", "paragraphs": ["在总界面右侧点击“激光画面”按钮，进入激光源 LaserBOF 画面。"], "image": "./assets/images/laser-source-query-step-1.jpg", "caption": "进入激光画面"},
+        {"step": "1", "title": "进入激光画面", "paragraphs": ["在总界面右侧点击“激光画面”按钮，进入激光源 LaserBOF 画面。"], "image": "./assets/images/laser-source-query-step-1-baohan.webp", "caption": "进入激光画面"},
         {"step": "2", "title": "进入 Diagnostics 诊断页面", "paragraphs": ["在 LaserBOF 画面右侧点击“Diagnostics”按钮，进入诊断页面。"], "image": "./assets/images/laser-source-query-step-2.jpg", "caption": "进入 Diagnostics 诊断页面"},
         {"step": "3", "title": "查看当前报警 Pending messages", "paragraphs": ["在诊断页面顶部点击“Pending messages”，查看当前未处理报警。"], "image": "./assets/images/laser-source-query-step-3.jpg", "caption": "查看当前报警 Pending messages"},
         {"step": "4", "title": "拍摄即时报警信息", "paragraphs": ["拍摄即时报警信息，并发送给点检人员确认。"], "image": "./assets/images/laser-source-query-step-4.jpg", "caption": "拍摄即时报警信息"},
@@ -124,12 +124,12 @@
       "keywords": ["夹紧台", "堵塞", "夹钳台", "位置异常"],
       "guide": [
         {"title": "异常信息", "paragraphs": ["异常类别：夹紧台控制 / 出入口夹钳台", "报警提示：夹紧台堵塞 / 夹紧台位置异常", "需要通知：班长、点检", "按以下画面步骤处理；调整后仍无法消除故障时，停止处理并通知点检。"], "emphasis": [{"text": "禁止继续生产", "tone": "red"}]},
-        {"step": "1", "title": "进入夹钳台控制器", "paragraphs": ["按照报警画面，选择“入口夹钳台控制器”或“出口夹钳台控制器”。"], "image": "./assets/images/clamp-platform-step-1.webp", "caption": "进入夹钳台控制器"},
-        {"step": "2", "title": "进入调整模式", "paragraphs": ["进入画面后，点击左下角“调整模式”按钮，按钮变为绿色后进入调整模式。"], "image": "./assets/images/clamp-platform-step-2.webp", "caption": "进入调整模式"},
-        {"step": "3", "title": "比对两侧实际数值", "paragraphs": ["观察入口、出口两侧实际编码器数值，确认两侧数值差异。"], "image": "./assets/images/clamp-platform-step-3.webp", "caption": "比对两侧实际数值"},
-        {"step": "4", "title": "锁定需要保持的一侧", "paragraphs": ["根据数值，点击单侧“锁定轴 LOCK”进行锁轴；仅对未锁轴侧进行后续调整。"], "image": "./assets/images/clamp-platform-step-4.webp", "caption": "锁定需要保持的一侧"},
-        {"step": "5", "title": "微调未锁轴侧位置", "paragraphs": ["对未锁轴处夹紧台进行微调，直至两侧实际值接近，差值约 1 mm。"], "image": "./assets/images/clamp-platform-step-5.webp", "caption": "微调未锁轴侧位置"},
-        {"step": "6", "title": "取消锁定并恢复动作", "paragraphs": ["数值调整完成后，取消锁定轴、取消调整模式；回到出入口画面，点击夹紧台位置前后移动，确认故障消除。"], "image": "./assets/images/clamp-platform-step-6.webp", "caption": "取消锁定并恢复动作"}
+        {"step": "1", "title": "进入夹钳台控制器", "paragraphs": ["按照报警画面，选择“入口夹钳台控制器”或“出口夹钳台控制器”。"], "image": "./assets/images/clamp-platform-step-1-baohan.webp", "caption": "进入夹钳台控制器"},
+        {"step": "2", "title": "进入调整模式", "paragraphs": ["进入画面后，点击左下角“调整模式”按钮，按钮变为绿色后进入调整模式。"], "image": "./assets/images/clamp-platform-step-2-baohan.webp", "caption": "进入调整模式"},
+        {"step": "3", "title": "比对两侧实际数值", "paragraphs": ["观察入口、出口两侧实际编码器数值，确认两侧数值差异。"], "image": "./assets/images/clamp-platform-step-3-baohan.webp", "caption": "比对两侧实际数值"},
+        {"step": "4", "title": "锁定需要保持的一侧", "paragraphs": ["根据数值，点击单侧“锁定轴 LOCK”进行锁轴；仅对未锁轴侧进行后续调整。"], "image": "./assets/images/clamp-platform-step-4-baohan.webp", "caption": "锁定需要保持的一侧"},
+        {"step": "5", "title": "微调未锁轴侧位置", "paragraphs": ["对未锁轴处夹紧台进行微调，直至两侧实际值接近，差值约 1 mm。"], "image": "./assets/images/clamp-platform-step-5-baohan.webp", "caption": "微调未锁轴侧位置"},
+        {"step": "6", "title": "取消锁定并恢复动作", "paragraphs": ["数值调整完成后，取消锁定轴、取消调整模式；回到出入口画面，点击夹紧台位置前后移动，确认故障消除。"], "image": "./assets/images/clamp-platform-step-6-baohan.webp", "caption": "取消锁定并恢复动作"}
       ]
     },
     {
