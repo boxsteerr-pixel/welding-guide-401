@@ -243,3 +243,11 @@ button:focus-visible, input:focus-visible, summary:focus-visible { outline:3px s
 .image-retry[hidden] { display:none; }
 .offline-progress { margin-top:8px; padding:8px 0; border:0; background:transparent; color:inherit; font:inherit; font-size:13px; text-align:left; }
 .step-card img:not([src]) { min-height:100px; }
+
+@media (max-width: 500px) {
+  .home-actions__pair .action-card { padding: 10px; gap: 8px; }
+  .home-actions__pair .action-card__icon { width: 40px; height: 40px; flex-basis: 40px; }
+  .home-actions__pair .action-card strong { font-size: 16px; white-space: nowrap; }
+  .home-actions__pair .action-card small { font-size: 12px; }
+}
+.install-button svg { vertical-align: middle; margin-right: 6px; }

@@ -1,4 +1,4 @@
-const CACHE_NAME = "welding-guide-401-v29";
+const CACHE_NAME = "welding-guide-401-v30";
 const CACHE_PREFIX = "welding-guide-401-";
 const APP_ROOT = new URL("./", self.location.href);
 const MEDIA_SOURCES = [
@@ -43,9 +43,9 @@ const CORE_ASSETS = [
   "./index.html",
   "./css/home-link.css?v=5",
   "./css/style.css",
-  "./css/style.css?v=12",
+  "./css/style.css?v=13",
   "./js/app.js",
-  "./js/app.js?v=20",
+  "./js/app.js?v=21",
   "./js/update-state.js?v=2",
   "./data/manual.json",
   "./manifest.json",

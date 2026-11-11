@@ -244,7 +244,7 @@
     document.title = `${machine.machineName} · ${machine.manualTitle}`;
     setText("#machine-name", machine.machineName);
     setText("#manual-title", machine.manualTitle);
-    setText("#machine-state", machine.contentStatus);
+    setText("#machine-state", "现场快速处置");
     setText("#manual-version", `版本 ${machine.manualVersion} · 更新 ${machine.lastUpdated}`);
     setText("#footer-machine", machine.machineName);
     setText("#footer-version", machine.manualVersion);
