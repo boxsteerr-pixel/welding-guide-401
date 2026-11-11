@@ -338,6 +338,7 @@
             "按照报警画面，选择“入口夹钳台控制器”或“出口夹钳台控制器”。"
           ],
           "image": "./assets/images/clamp-platform-step-1-baohan.webp",
+          "imagePreview": "./assets/images/clamp-platform-step-1-mobile-v2.webp",
           "caption": "进入夹钳台控制器"
         },
         {
@@ -347,6 +348,7 @@
             "进入画面后，点击左下角“调整模式”按钮，按钮变为绿色后进入调整模式。"
           ],
           "image": "./assets/images/clamp-platform-step-2-baohan.webp",
+          "imagePreview": "./assets/images/clamp-platform-step-2-mobile-v2.webp",
           "caption": "进入调整模式"
         },
         {
@@ -356,6 +358,7 @@
             "观察入口、出口两侧实际编码器数值，确认两侧数值差异。"
           ],
           "image": "./assets/images/clamp-platform-step-3-baohan.webp",
+          "imagePreview": "./assets/images/clamp-platform-step-3-mobile-v2.webp",
           "caption": "比对两侧实际数值"
         },
         {
@@ -365,6 +368,7 @@
             "根据数值，点击单侧“锁定轴 LOCK”进行锁轴；仅对未锁轴侧进行后续调整。"
           ],
           "image": "./assets/images/clamp-platform-step-4-baohan.webp",
+          "imagePreview": "./assets/images/clamp-platform-step-4-mobile-v2.webp",
           "caption": "锁定需要保持的一侧"
         },
         {
@@ -374,6 +378,7 @@
             "对未锁轴处夹紧台进行微调，直至两侧实际值接近，差值约 1 mm。"
           ],
           "image": "./assets/images/clamp-platform-step-5-baohan.webp",
+          "imagePreview": "./assets/images/clamp-platform-step-5-mobile-v2.webp",
           "caption": "微调未锁轴侧位置"
         },
         {
@@ -383,6 +388,7 @@
             "数值调整完成后，取消锁定轴、取消调整模式；回到出入口画面，点击夹紧台位置前后移动，确认故障消除。"
           ],
           "image": "./assets/images/clamp-platform-step-6-baohan.webp",
+          "imagePreview": "./assets/images/clamp-platform-step-6-mobile-v2.webp",
           "caption": "取消锁定并恢复动作"
         }
       ]

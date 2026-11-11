@@ -168,7 +168,8 @@
           hint.className = "image-hint";
           hint.append(text("点击查看大图"));
           card.append(image, hint);
-          prepareManualImage(image, step.image, hint, card);
+          if (step.imagePreview) image.dataset.originalSrc = step.image;
+          prepareManualImage(image, step.imagePreview || step.image, hint, card);
         }
         body.append(card);
       });
@@ -388,6 +389,13 @@
     imageContext = { source: source, x: window.scrollX, y: window.scrollY };
     imageHistoryClosing = false;
     modalImage.src = source.currentSrc || source.src;
+    if (source.dataset.originalSrc) {
+      const original = new Image();
+      original.onload = function () {
+        if (!modal.hidden && imageContext && imageContext.source === source) modalImage.src = original.src;
+      };
+      original.src = source.dataset.originalSrc;
+    }
     modalImage.alt = source.alt;
     modal.hidden = false;
     document.body.classList.add("modal-open");
