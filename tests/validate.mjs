@@ -82,7 +82,7 @@ for (const image of filterImages) { await stat(path.join(root, image)); assert.o
 assert.equal(manifest.start_url, "./");
 assert.equal(manifest.scope, "./");
 assert.deepEqual(manual.notices, []);
-assert.match(sw, /const CACHE_NAME = "welding-guide-401-v31"/);
+assert.match(sw, /const CACHE_NAME = "welding-guide-401-v32"/);
 assert.match(html, /id="currentTime"/);
 assert.match(html, /system-time\.js\?v=1/);
 assert.match(sw, /system-time\.js\?v=1/);
