@@ -13,7 +13,7 @@ const manifest = JSON.parse(manifestText);
 
 assert.equal(manual.machine.machineId, "401");
 assert.equal(manual.machine.machineName, "401激光焊机");
-assert.equal(manual.machine.manualVersion, "0.3.6");
+assert.equal(manual.machine.manualVersion, "0.3.7");
 for (const item of [...manual.faults, ...manual.maintenance]) {
   for (const block of item.guide || []) {
     for (const image of [block.image, ...(block.images || []).map(picture => picture.image)].filter(Boolean)) {
@@ -68,7 +68,9 @@ for (const item of manual.maintenance) {
     assert.ok(sw.includes(`"${block.image}"`));
   }
 }
-assert.deepEqual(manual.safety, []);
+assert.equal(manual.safety.length, 9);
+assert.ok(manual.safety.every(item => item.steps.length === 1));
+assert.ok(html.includes("安全销位置识别"));
 const filter = manual.faults[1];
 assert.equal(filter.id, "circulation-pump-filter-alarm");
 assert.deepEqual(filter.guide.filter(block => block.step).map(block => block.step), ["1", "2", "3", "4"]);
@@ -80,7 +82,7 @@ for (const image of filterImages) { await stat(path.join(root, image)); assert.o
 assert.equal(manifest.start_url, "./");
 assert.equal(manifest.scope, "./");
 assert.deepEqual(manual.notices, []);
-assert.match(sw, /const CACHE_NAME = "welding-guide-401-v30"/);
+assert.match(sw, /const CACHE_NAME = "welding-guide-401-v31"/);
 assert.match(html, /id="currentTime"/);
 assert.match(html, /system-time\.js\?v=1/);
 assert.match(sw, /system-time\.js\?v=1/);
